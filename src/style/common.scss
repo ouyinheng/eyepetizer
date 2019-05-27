@@ -1,0 +1,19 @@
+.color-grey {
+  color: rgba(204,204,204,.5);
+}
+.bg-grey {
+  background-color: #eee;
+}
+img {
+  background-color: rgba(204,204,204,.5);
+}
+$color: (
+  p1: #26272a,
+  p2: #7f7e7e,
+  p3: #b4b4b4
+);
+@each $key,$val in $color {
+  .color-#{$key} {
+    color: $val;
+  }
+}
