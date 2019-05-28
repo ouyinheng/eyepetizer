@@ -15,30 +15,33 @@
         <span class="iconfont icon-more"></span>
       </div>
     </section>
-    <section class="section" v-if="getNowPlay!==-1">
+    <section
+      class="section"
+      v-if="getNowPlay!==-1"
+      style="display:flex;flex-direction:column;justify-content:space-around;"
+    >
       <img :src="info.songs[0].al.picUrl" :class="{
 		  play: getPlay
 	  }" alt>
-      <mu-slider class="demo-slider mt-8" v-model="slide" color="#ff4545"></mu-slider>
-      <div class="flex around -center font-lg" style="width: 70%;margin: 70px auto 0;">
-        <span class="iconfont icon-zhuanfa"></span>
-        <span class="iconfont icon-xihuan"></span>
-        <span class="iconfont icon-pinglun"></span>
-        <span class="iconfont icon-xiazai1"></span>
+      <div>
+        <mu-slider class="demo-slider" v-model="slide" color="#ff4545"></mu-slider>
+        <div class="flex around -center font-lg" style="width: 70%;margin: 20px auto 0;">
+          <span class="iconfont icon-zhuanfa"></span>
+          <span class="iconfont icon-xihuan"></span>
+          <span class="iconfont icon-pinglun"></span>
+          <span class="iconfont icon-xiazai1"></span>
+        </div>
       </div>
-      <div
-        class="flex around -center font-lg"
-        style="width: 100%;position:absolute;bottom: 100px;left:0;"
-      >
+      <div class="flex around -center font-lg">
         <span class="iconfont icon-prev color-red font-xl" style="font-size: 3.8rem;" @click="prev"></span>
         <span
           :class="{
-			'iconfont':true, 
-			'icon-bofang1':!getPlay,
-			'icon-zanting1': getPlay,
-			'color-red': true,
-			'font-xl': true
-		}"
+            'iconfont':true, 
+            'icon-bofang1':!getPlay,
+            'icon-zanting1': getPlay,
+            'color-red': true,
+            'font-xl': true
+          }"
           style="font-size: 4.8rem;"
           @click="changePlayStatus"
         ></span>
@@ -104,7 +107,7 @@ export default {
     },
     next() {
       const length = this.getPlayList.length;
-      let nowplay = this.getNowPlay+1;
+      let nowplay = this.getNowPlay + 1;
       if (nowplay >= length) {
         nowplay = 0;
       }
@@ -151,9 +154,9 @@ export default {
     bottom: 0;
     left: 0;
     box-sizing: border-box;
-    padding: 0 10px;
+    padding: 0px 10px 20px;
     img {
-      width: 160px;
+      width: 50%;
       display: block;
       background-color: transparent;
       margin: 50px auto 0;
