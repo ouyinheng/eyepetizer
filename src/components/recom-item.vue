@@ -1,7 +1,7 @@
 <template>
-  <div class="songlist-item">
+  <div class="songlist-item" @click="rowClick">
     <img class="mb-2" :src="value.picUrl" :alt="value.name">
-    <span class="font-md color-p1 intro">{{value.name}}</span>
+    <span class="font-sm color-p1 intro">{{value.name}}</span>
     <div class="songlist-intro pl-2 pt-1" style="color:#ffffff">
       <span class="iconfont icon-icon-"></span>
       <span>{{parseInt(value.playcount/10000)}}万</span>
@@ -12,7 +12,12 @@
 <script>
 export default {
   name: "songlist-item",
-  props: ["value"]
+  props: ["value"],
+  methods: {
+    rowClick() {
+      this.$emit('row-click')
+    }
+  }
 };
 </script>
 
@@ -37,7 +42,7 @@ export default {
   }
   .intro {
     display: block;
-    height: 2rem;
+    height: 4rem;
     overflow: hidden;
   }
 }

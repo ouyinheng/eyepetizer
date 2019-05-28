@@ -11,6 +11,12 @@ export const getRecommend = ({commit}) => {
     return res.recommend;
   })
 }
+export const getRecommendInfo = ({commit}, id) => {
+  return Svc.getRecommendInfo(id).then( res => {
+    return res.playlist;
+  })
+}
+
 export const getDayRecom = ({commit}) => {
   return Svc.getDayRecom().then( res => {
       return res.recommend;

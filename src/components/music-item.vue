@@ -2,8 +2,11 @@
   <div class="music-item" @click="clickRow">
     <img class="music-cover" :src="imgUrl">
     <div class="info">
-      <div class="font-md" style="padding: 5px 0;color: #26272a">{{title}}</div>
-      <div style="color: #7e7e7e;font-size: 1rem;">{{content}}</div>
+      <div class="font-md over-spot" style="width: 90%;padding: 5px 0;color: #26272a">{{title}}</div>
+      <div
+        style="color: #7e7e7e;box-sizing:border-box;width:90%;"
+        class="over-spot font-sm"
+      >{{content}}</div>
     </div>
   </div>
 </template>
@@ -18,7 +21,7 @@ export default {
   },
   methods: {
     clickRow() {
-      this.$emit('click-row')
+      this.$emit("click-row");
     }
   }
 };
@@ -36,6 +39,7 @@ export default {
     border-radius: 5px;
   }
   .info {
+    width: 100%;
     margin-left: 4px;
     box-sizing: border-box;
     padding: 0 4px;

@@ -20,9 +20,7 @@
       v-if="getNowPlay!==-1"
       style="display:flex;flex-direction:column;justify-content:space-around;"
     >
-      <img :src="info.songs[0].al.picUrl" :class="{
-		  play: getPlay
-	  }" alt>
+      <img :src="info.songs[0].al.picUrl" :class="{play: getPlay}" alt>
       <div>
         <mu-slider class="demo-slider" v-model="slide" color="#ff4545"></mu-slider>
         <div class="flex around -center font-lg" style="width: 70%;margin: 20px auto 0;">

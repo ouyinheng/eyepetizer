@@ -28,7 +28,7 @@
           <span class="iconfont icon-more"></span>
         </h3>
         <div class="songlist">
-          <recom-item v-for="(item, index) in getRecommList.slice(0, 9)" :key="index" :value="item"></recom-item>
+          <recom-item v-for="(item, index) in getRecommList.slice(0, 9)" :key="index" :value="item" @row-click="toSingListInfo(item.id)"></recom-item>
         </div>
       </div>
       <!-- <div class="mt-6">
@@ -110,6 +110,14 @@ export default {
     },
     jump(url) {
       this.$router.push(url)
+    },
+    toSingListInfo(id) {
+      this.$router.push({
+        path: '/singlistinfo',
+        query: {
+          id
+        }
+      })
     }
   },
   created() {

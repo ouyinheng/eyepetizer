@@ -17,3 +17,8 @@ $color: (
     color: $val;
   }
 }
+.over-spot {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

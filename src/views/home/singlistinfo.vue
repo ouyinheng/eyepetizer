@@ -1,9 +1,6 @@
 <template>
-  <div class="recommendation">
+  <div class="singlistinfo">
     <o-header :top="30"></o-header>
-    <!-- <header class="header bg-grey" :style="{
-      backgroundImage: `url(${img})`
-    }"></header>-->
     <header class="header bg-grey" :style="{
       backgroundImage: `url(${img})`
     }">
@@ -16,9 +13,9 @@
         <musicitem
           v-for="(item, index) in musicList"
           :key="index"
-          :imgUrl="item.album.picUrl"
+          :imgUrl="item.al.picUrl"
           :title="item.name"
-          :content="item.artists.map(item=>item.name).join('/')+'-'+item.album.name"
+          :content="item.al.name+'---'+(item.alia[0]||'')"
           @click-row="toMusic(item.id)"
         ></musicitem>
       </mu-list>
@@ -38,7 +35,7 @@ import Header from "@/components/oHeader.vue";
 import musicitem from "@/components/music-item.vue";
 
 export default {
-  name: "recommendation",
+  name: "singlistinfo",
   components: {
     "o-header": Header,
     musicitem
@@ -52,8 +49,13 @@ export default {
   computed: {
     ...mapGetters(["getPlayList", "getNowPlay"])
   },
+  watch: {
+    "$route.query"(val) {
+      this.getList(val.id);
+    }
+  },
   methods: {
-    ...mapActions(["getDayRecom"]),
+    ...mapActions(["getRecommendInfo"]),
     ...mapMutations(["setPlayList", "setNowPlay"]),
     toMusic(row) {
       const index = this.getPlayList.indexOf(row);
@@ -64,19 +66,25 @@ export default {
         this.setNowPlay(this.getPlayList.length - 1);
       }
       this.$router.push("/music");
+    },
+    getList(id) {
+      if (!id) return;
+      this.getRecommendInfo(id).then(res => {
+        console.log(res);
+        this.musicList = res.tracks;
+        this.img = res.coverImgUrl;
+      });
     }
   },
   created() {
-    this.getDayRecom().then(res => {
-      this.musicList = res;
-      this.img = res[0].album.blurPicUrl;
-    });
+    let id = this.$route.query.id;
+    this.getList(id);
   }
 };
 </script>
 
 <style lang="scss" scoped>
-.recommendation {
+.singlistinfo {
   width: 100%;
   height: 100vh;
   overflow-y: auto;
