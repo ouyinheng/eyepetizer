@@ -82,6 +82,7 @@ export default {
     width: 80px;
     height: 80px;
     margin: 80px auto 40px;
+    background-color: transparent;
   }
 }
 </style>
