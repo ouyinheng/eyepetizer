@@ -1,22 +1,62 @@
 <template>
   <div class="ranking">
-    <o-header :top="10" color="#000000"></o-header>
+    <o-header :top="0" color="white" title="排行榜"></o-header>
     <section class="section">
-      <h3 class="font-lg">排行榜</h3>
+      <div class="mt-2 article">
+        <h3 class="font-lg mb-2">官方榜</h3>
+        <div class="article-item mb-2" v-for="(item, index) in officialList" :key="index">
+          <div class="flex -center">
+            <img :src="item.coverImgUrl" alt>
+            <div class="ml-1" style="box-sizing:border-box;width: 70%;">
+              <p
+                class="font-md p-1 over-spot"
+                v-for="(items, indexs) in item.tracks"
+                :key="indexs"
+                style="line-height:16px"
+              >0{{indexs+1}}.{{items.first}} -- {{items.second}}</p>
+            </div>
+          </div>
+        </div>
+        <h3 class="font-lg mb-2">推荐榜</h3>
+        <div class="article-item flex between">
+          <div v-for="(item, index) in rankList" :key="index" style="width: 33%;" class="mb-2">
+            <div>
+              <img :src="item.coverImgUrl" alt>
+              <p style="width: 100%;">{{item.name}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
   </div>
 </template>
 
 <script>
 import Header from "@/components/oHeader.vue";
-
+import { mapActions } from "vuex";
 export default {
   name: "ranking",
   components: {
     "o-header": Header
   },
   data() {
-    return {};
+    return {
+      officialList: [],
+      rankList: []
+    };
+  },
+  methods: {
+    ...mapActions(["getTopListDetail"])
+  },
+  created() {
+    this.getTopListDetail().then(res => {
+      this.officialList = res.list.filter(item => {
+        return item.tracks.length > 0;
+      });
+      this.rankList = res.list.filter(item => {
+        return item.tracks.length == 0;
+      });
+    });
   }
 };
 </script>
@@ -26,11 +66,23 @@ export default {
   width: 100%;
   box-sizing: border-box;
   padding: 10px;
+  overflow: auto;
+  background-color: white;
   .section {
-      margin-top: 50px;
-      h3 {
-          font-weight: 550;
+    margin-top: 80px;
+    h3 {
+      font-weight: 550;
+    }
+    .article {
+      width: 100%;
+      &-item {
+        flex-wrap: wrap;
+        img {
+          width: 100px;
+          border-radius: 5px;
+        }
       }
+    }
   }
 }
 </style>

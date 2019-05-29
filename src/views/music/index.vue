@@ -10,7 +10,7 @@
     </div>
     <mu-list toggle-nested>
       <div button :ripple="true" nested style="padding: 10px 0;display:flex;align-items:center;">
-        <mu-list-item-title class="font-sm">
+        <mu-list-item-title class="font-md">
           <span class="iconfont icon-gengduo_tinggemianliuliang_ icon font-lg mr-2"></span>最近播放
         </mu-list-item-title>
         <mu-list-item-action>
@@ -18,7 +18,7 @@
         </mu-list-item-action>
       </div>
       <div button :ripple="true" nested style="padding: 10px 0;display:flex;align-items:center;">
-        <mu-list-item-title class="font-sm">
+        <mu-list-item-title class="font-md">
           <span class="iconfont icon-xia icon font-lg mr-2"></span>我的下载
         </mu-list-item-title>
         <mu-list-item-action>
@@ -26,7 +26,7 @@
         </mu-list-item-action>
       </div>
       <div button :ripple="true" nested style="padding: 10px 0;display:flex;align-items:center;">
-        <mu-list-item-title class="font-sm">
+        <mu-list-item-title class="font-md">
           <span class="iconfont icon-diantai2 icon font-lg mr-2"></span>我的电台
         </mu-list-item-title>
         <mu-list-item-action>
@@ -34,7 +34,7 @@
         </mu-list-item-action>
       </div>
       <div button :ripple="true" nested style="padding: 10px 0;display:flex;align-items:center;">
-        <mu-list-item-title class="font-sm">
+        <mu-list-item-title class="font-md">
           <span class="iconfont icon-xihuan1 icon font-lg mr-2"></span>我的收藏
         </mu-list-item-title>
         <mu-list-item-action>
@@ -66,6 +66,7 @@
         :imgUrl="item.coverImgUrl"
         :title="item.name"
         :content="item.trackCount+'首'"
+        @click-row="toMusicInfo(item.id)"
       ></musicitem>
     </mu-list>
     <!-- 收藏的歌单 -->
@@ -93,6 +94,7 @@
         :imgUrl="item.coverImgUrl"
         :title="item.name"
         :content="item.trackCount+'首'"
+        @click-row="toMusicInfo(item.id)"
       ></musicitem>
     </mu-list>
   </div>
@@ -118,13 +120,18 @@ export default {
     return {
       open: "send",
       open1: "send",
-      setUpuserSingList: []
+      setUpuserSingList: [],
+      id: ''
     };
   },
   methods: {
-    ...mapActions(["getUserSingList"])
+    ...mapActions(["getUserSingList"]),
+    toMusicInfo(id) {
+      this.$router.push(`/singlistinfo?id=${id}`)
+    }
   },
   created() {
+    this.id = this.$route.query.id;
     // console.log(this.getSetUpuserSingList, this.getCollectUserSingList)
     // this.getUserSingList(this.getUserInfo.userId)
   }

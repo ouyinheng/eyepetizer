@@ -1,6 +1,7 @@
 <template>
   <div class="userinfo">
-    <o-header :top="30"></o-header>
+    <o-header :top="0"></o-header>
+    <!-- 
     <div class="header" :style="`backgroundImage:url(${getUserInfo.backgroundUrl})`">
       <img :src="getUserInfo.avatarUrl" alt>
       <div class="nickname mt-2 font-lg">{{getUserInfo.nickname}}</div>
@@ -11,17 +12,20 @@
       <div class="mt-2 edit">
           <span>编辑</span>
       </div>
-    </div>
+    </div> -->
+    <user-info :getUserInfo="getUserInfo"></user-info>
   </div>
 </template>
 
 <script>
 import { mapActions, mapGetters } from "vuex";
 import oheader from "@/components/oHeader.vue";
+import UserInfo from '@/components/userinfo.vue';
 export default {
   name: "userinfo",
   components: {
-    "o-header": oheader
+    "o-header": oheader,
+    'user-info': UserInfo
   },
   computed: {
     ...mapGetters(["getUserInfo"])

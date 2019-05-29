@@ -22,12 +22,12 @@
           <div style="margin-top: 5px;">{{item.title}}</div>
         </div>
       </div>
-      <div class="mt-6">
-        <h3 class="h3 font-md" @click="goDayRecomm">
+      <div class="mt-4">
+        <h3 class="h3 font-md" @click="jump('/playlists')">
           精选歌单
           <span class="iconfont icon-more"></span>
         </h3>
-        <div class="songlist">
+        <div class="songlist mt-2">
           <recom-item v-for="(item, index) in getRecommList.slice(0, 9)" :key="index" :value="item" @row-click="toSingListInfo(item.id)"></recom-item>
         </div>
       </div>
@@ -166,9 +166,12 @@ export default {
     flex-direction: column;
   }
   .h3 {
-    font-weight: 550;
-    margin: 10px 0 15px;
-    font-size: 1.3rem;
+    display: block;
+    box-sizing: content-box;
+    height: 20px;
+    line-height: 20px;
+    padding: 0 0 5px;
+    font-weight: bold;
   }
   .section {
     width: 100%;
@@ -176,7 +179,7 @@ export default {
   .songlist {
     width: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     flex-wrap: wrap;
   }
 }

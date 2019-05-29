@@ -1,6 +1,6 @@
 <template>
   <div class="recommendation">
-    <o-header :top="30"></o-header>
+    <o-header :top="0"></o-header>
     <!-- <header class="header bg-grey" :style="{
       backgroundImage: `url(${img})`
     }"></header>-->

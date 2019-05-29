@@ -22,3 +22,8 @@ export const getDayRecom = ({commit}) => {
       return res.recommend;
   })
 }
+export const getTopListDetail = ({commit}) => {
+  return Svc.getTopListDetail().then( res => {
+      return res;
+  })
+}

@@ -5,8 +5,9 @@ import router from './router/index.js'
 import store from './vuex'
 import MuseUI from 'muse-ui'
 import 'muse-ui/dist/muse-ui.css'
-import './style/index.scss';
 import VueLazyload from 'vue-lazyload'
+import './style/index.scss';
+
 Vue.use(VueLazyload, {
   preLoad: 1.3,
   error: 'logo.png',

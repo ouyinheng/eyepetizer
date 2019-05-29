@@ -11,3 +11,6 @@ export const getRecommendInfo = (id) => axios.get(`${host}/playlist/detail?id=${
 
 // 获取每日推荐歌曲
 export const getDayRecom = () => axios.get(`${host}/recommend/songs`)
+
+// 排行榜
+export const getTopListDetail = () => axios.get(`${host}/toplist/detail`)

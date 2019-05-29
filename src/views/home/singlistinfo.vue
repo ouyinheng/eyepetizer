@@ -1,6 +1,6 @@
 <template>
   <div class="singlistinfo">
-    <o-header :top="30"></o-header>
+    <o-header :top="0" :color="color"></o-header>
     <header class="header bg-grey" :style="{
       backgroundImage: `url(${img})`
     }">
@@ -43,7 +43,8 @@ export default {
   data() {
     return {
       musicList: [],
-      img: ""
+      img: "",
+      color: 'transparent'
     };
   },
   computed: {
@@ -79,6 +80,18 @@ export default {
   created() {
     let id = this.$route.query.id;
     this.getList(id);
+    
+  },
+  mounted() {
+    document.getElementsByClassName('singlistinfo')[0].addEventListener("scroll", (e) => {
+      let top = document.getElementsByClassName('singlistinfo')[0].scrollTop;
+      console.log(top)
+      if(top >= 150) {
+        this.color = 'white'
+      } else {
+        this.color = 'transparent'
+      }
+    })
   }
 };
 </script>

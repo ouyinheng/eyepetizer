@@ -11,7 +11,8 @@ import singlist from '@/views/home/singlist.vue';
 import ranking from '@/views/home/ranking.vue';
 import station from '@/views/home/station.vue';
 import music from '@/views/seconds/music.vue';
-import singlistinfo from '@/views/home/singlistinfo.vue'
+import singlistinfo from '@/views/home/singlistinfo.vue';
+import playlists from '@/views/home/playlists.vue';
 Vue.use(Router)
 
 const router = new Router({
@@ -115,9 +116,17 @@ const router = new Router({
     name: 'singlistinfo',
     meta: {
       name: 'slide-left',
-      weight: 9
+      weight: 10
     },
     component: singlistinfo
+  }, {
+    path: '/playlists',
+    name: 'playlists',
+    meta: {
+      name: 'slide-left',
+      weight: 11
+    },
+    component: playlists
   }]
 })
 

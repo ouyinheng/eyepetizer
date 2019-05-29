@@ -22,3 +22,10 @@ $color: (
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+$h:(
+  3rem,//活动标题
+  2.7rem,//列表标题
+  2.5rem,//常用语带头像列表文字标题
+  2.33rem,//副标题，按钮文字
+  2.17rem,//详细描述文字，如：商品名，商品详情
+);

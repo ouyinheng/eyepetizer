@@ -193,7 +193,7 @@ export default {
   .section {
     width: 100%;
     background-color: white;
-    padding-top: 30px;
+    padding-top: 60px;
   }
   .mu-item {
     height: 45px !important;

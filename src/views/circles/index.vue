@@ -11,8 +11,13 @@
           </div>
         </div>
       </div>
-      <mu-container ref="container" class="demo-loadmore-content">
+      <Skeleton v-if="loadings"></Skeleton>
+      <mu-container ref="container" class="demo-loadmore-content" v-else>
         <mu-load-more @refresh="refresh" :refreshing="refreshing" :loading="loading" @load="load">
+          <div class="flex between mt-2">
+            <div class="md-button font-md">添加好友</div>
+            <div class=" md-button font-md">发布动态</div>
+          </div>
           <mu-list class>
             <mu-card
               style="width: 100%; max-width: 375px; margin: 10px auto 20px;border-radius: 10px;"
@@ -91,10 +96,14 @@
 
 <script>
 import { mapActions, mapGetters } from "vuex";
+import Skeleton from './Skeleton.vue';
 export default {
   name: "circles",
   computed: {
     ...mapGetters(["getDynamic"])
+  },
+  components: {
+    Skeleton
   },
   data() {
     return {
@@ -102,7 +111,8 @@ export default {
       refreshing: false,
       loading: false,
       text: "List",
-      nowPlay: -1
+      nowPlay: -1,
+      loadings: false
     };
   },
   methods: {
@@ -149,7 +159,10 @@ export default {
     }
   },
   created() {
-    this.getUserDynamic({ pagesize: 30, refresh: false });
+    this.loadings = true;
+    this.getUserDynamic({ pagesize: 30, refresh: false }).then(res=>{
+      this.loadings = false;
+    })
   }
 };
 </script>
@@ -181,8 +194,18 @@ export default {
   .demo-loadmore-content {
     width: 100%;
     box-sizing: border-box;
-    padding: 0 20px;
     padding: 0 10px !important;
+    .md-button {
+      width: 40%;
+      max-width: 200px;
+      padding: 15px 10px;
+      border-radius: 5px;
+      text-align: center;
+      background-color: white;
+    }
+  }
+  .demo-loadmore-wrap {
+    height: 100%;
   }
   .header {
     width: 100%;
