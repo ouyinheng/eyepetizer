@@ -18,11 +18,15 @@ font-sm :12px
 font-md: 14px
 font-lg" 16px
 ```
-5. 运行
+5. icon
+```
+请联系我在阿里巴巴icon上添加成员
+```
+6. 运行
 ```
 yarn server
 ```
-6. 打包
+7. 打包
 ```
 yarn build
 ```
