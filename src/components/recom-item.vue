@@ -1,10 +1,10 @@
 <template>
   <div class="songlist-item" @click="rowClick">
-    <img class="mb-2" :src="value.picUrl" :alt="value.name">
+    <img class="mb-2" v-lazy="value.picUrl||value.coverImgUrl" :alt="value.name">
     <span class="font-sm color-p1 intro">{{value.name}}</span>
     <div class="songlist-intro pl-2 pt-1" style="color:#ffffff">
       <span class="iconfont icon-icon-"></span>
-      <span>{{parseInt(value.playcount/10000)}}万</span>
+      <span>{{parseInt((value.playcount||value.playCount)/10000)}}万</span>
     </div>
   </div>
 </template>

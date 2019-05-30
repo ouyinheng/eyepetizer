@@ -1,0 +1,16 @@
+@mixin position($positoin:relative) {
+  position: $positoin;
+}
+.position-rel {
+  @include position(relative);
+}
+.position-abs {
+  @include position(absolute);
+}
+.position-abs-full {
+  @extend .position-abs;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}

@@ -1,2 +1,53 @@
-$color-primary:#ff4545;
+/**
+* 存储变量
+*/
+$colors:(
+  p: #ff4545,
+  p1: #B4B4B4,
+  p2: #7F7E7E,
+  p3: #26272A
+);
+// 辅助色
+$colors-assistL: (
+  a1: #ff6686,
+  a2: #51B7FF,
+  a3: #BC78FF,
+  a4: #FFD863
+);
+// 中性色
+$colors-neutral: (
+  p: #303133,
+  c: #606266,
+  m: #909399,
+  o: #C0C4CC
+);
+// 边框颜色
+$colors-border: (
+  b1: #DCDFE6,
+  b2: #E4E7ED,
+  b3: #EBEEF5,
+  b4: #F2F6FC
+);
+// 间距
+$space: (
+  p: 'padding',
+  m: 'margin',
+  pl: 'padding-left',
+  pr: 'padding-right',
+  pt: 'padding-top',
+  pb: 'padding-bottom',
+  ml: 'margin-left',
+  mr: 'margin-right',
+  mt: 'margin-top',
+  mb: 'margin-bottom'
+);
+// 字体大小
+$fontsize: (
+  sm: 1rem, //辅助文字
+  md: 1.16rem, //正文
+  lg: 1.4rem, //小标题标题
+  xs: 1.5rem, //标题
+  xxs: 1.67rem //大标题
+);
+
 $linear:linear-gradient( 135deg, #81FBB8 10%, #28C76F 100%);

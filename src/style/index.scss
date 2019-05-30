@@ -1,6 +1,8 @@
-@import './animate.scss';
 @import './var.scss';
-@import './reset.scss';
-@import './seat.scss';
-@import './space.scss';
-@import './common.scss';
+@import './base/reset.scss';
+@import './base/common.scss';
+@import './base/color.scss';
+@import './animation/animate.scss';
+@import './layout/seat.scss';
+@import './layout/space.scss';
+@import './layout/flex.scss';

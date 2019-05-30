@@ -1,7 +1,8 @@
 /**
  * @description [防抖，立即执行]
- * @param {*} func 执行函数
- * @param {*} wait 重置时间
+ * @param {Function} func 执行函数
+ * @param {Number} wait 重置时间
+ * @param {Boolean} immediately 是否立即执行
  */
 export function debounce(func,wait=1000,immediately=true) {
   let timeout;
@@ -22,6 +23,10 @@ export function debounce(func,wait=1000,immediately=true) {
       }
   }
 }
+/**
+ * 
+ * @param {Date} time 时间 
+ */
 export function getLocalTime(time) {     
   return new Date(parseInt(time) * 1000).toLocaleString().replace(/:\d{1,2}$/,' ');     
 }

@@ -7,11 +7,10 @@ import MuseUI from 'muse-ui'
 import 'muse-ui/dist/muse-ui.css'
 import VueLazyload from 'vue-lazyload'
 import './style/index.scss';
-
 Vue.use(VueLazyload, {
   preLoad: 1.3,
-  error: 'logo.png',
-  loading: 'logo.png',
+  error: 'preload.png',
+  loading: 'preload.png',
   attempt: 1
 })
 Vue.config.productionTip = false

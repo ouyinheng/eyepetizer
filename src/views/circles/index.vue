@@ -27,7 +27,7 @@
             >
               <mu-card-header class="header pb-1">
                 <mu-avatar color="indigo" size="40">
-                  <img class="icon" :src="item.user.avatarUrl" :alt="item.user.nickname">
+                  <img class="icon" v-lazy="item.user.avatarUrl" :alt="item.user.nickname">
                 </mu-avatar>
                 <div class="text ml-1">
                   <p class="font-sm pb-1">{{item.user.nickname}}</p>

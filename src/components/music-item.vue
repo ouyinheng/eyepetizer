@@ -1,6 +1,6 @@
 <template>
   <div class="music-item" @click="clickRow">
-    <img class="music-cover" :src="imgUrl">
+    <img class="music-cover" v-lazy="imgUrl">
     <div class="info">
       <div class="font-lg over-spot" style="width: 90%;padding: 5px 0;color: #26272a">{{title}}</div>
       <div
