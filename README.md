@@ -1,7 +1,6 @@
 ### 优优音乐
 1. 颜色
-
-![image](https://note.youdao.com/favicon.ico)
+![image](./assets/color.png)
 2. 间距
 
 ```
