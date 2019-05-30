@@ -2,10 +2,10 @@
   <div class="music-item" @click="clickRow">
     <img class="music-cover" :src="imgUrl">
     <div class="info">
-      <div class="font-md over-spot" style="width: 90%;padding: 5px 0;color: #26272a">{{title}}</div>
+      <div class="font-lg over-spot" style="width: 90%;padding: 5px 0;color: #26272a">{{title}}</div>
       <div
         style="color: #7e7e7e;box-sizing:border-box;width:90%;"
-        class="over-spot font-sm"
+        class="over-spot font-md"
       >{{content}}</div>
     </div>
   </div>
@@ -34,8 +34,10 @@ export default {
   // align-items: center;
   margin-bottom: 10px;
   .music-cover {
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    min-width: 50px;
+    height: 50px;
+    min-height: 50px;
     border-radius: 5px;
   }
   .info {

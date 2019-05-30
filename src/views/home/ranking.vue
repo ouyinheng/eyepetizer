@@ -1,6 +1,7 @@
 <template>
   <div class="ranking">
     <o-header :top="0" color="white" title="排行榜"></o-header>
+    <o-loading :loading="loading"></o-loading>
     <section class="section">
       <div class="mt-2 article">
         <h3 class="font-lg mb-2">官方榜</h3>
@@ -33,22 +34,26 @@
 
 <script>
 import Header from "@/components/oHeader.vue";
+import Loading from "@/components/loading.vue";
 import { mapActions } from "vuex";
 export default {
   name: "ranking",
   components: {
-    "o-header": Header
+    "o-header": Header,
+    'o-loading': Loading
   },
   data() {
     return {
       officialList: [],
-      rankList: []
+      rankList: [],
+      loading: false
     };
   },
   methods: {
     ...mapActions(["getTopListDetail"])
   },
   created() {
+    this.loading = true;
     this.getTopListDetail().then(res => {
       this.officialList = res.list.filter(item => {
         return item.tracks.length > 0;
@@ -56,6 +61,7 @@ export default {
       this.rankList = res.list.filter(item => {
         return item.tracks.length == 0;
       });
+      this.loading = false;
     });
   }
 };

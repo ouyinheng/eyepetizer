@@ -1,29 +1,26 @@
-# one
+### 优优音乐
+1. 颜色
 
-## Project setup
-```
-yarn install
-```
+![image](https://note.youdao.com/favicon.ico)
+2. 间距
 
-### Compiles and hot-reloads for development
 ```
-yarn run serve
+左右10px
 ```
 
-### Compiles and minifies for production
+3. 字体
+    
 ```
-yarn run build
+可选字体大小 (class)
+font-sm :12px
+font-md: 14px
+font-lg" 16px
 ```
-
-### Run your tests
+4. 运行
 ```
-yarn run test
+yarn server
 ```
-
-### Lints and fixes files
+5. 打包
 ```
-yarn run lint
+yarn build
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).

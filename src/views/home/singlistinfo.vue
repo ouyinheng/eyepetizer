@@ -20,6 +20,7 @@
         ></musicitem>
       </mu-list>
     </section>
+    <o-loading :loading="loading"></o-loading>
     <!-- <mu-list>
       <mu-list-item button :ripple="true" v-for="(item, index) in musicList" :key="index">
         <mu-list-item-title>{{item.name}}</mu-list-item-title>
@@ -33,18 +34,21 @@
 import { mapGetters, mapActions, mapMutations } from "vuex";
 import Header from "@/components/oHeader.vue";
 import musicitem from "@/components/music-item.vue";
+import Loading from "@/components/loading.vue";
 
 export default {
   name: "singlistinfo",
   components: {
     "o-header": Header,
-    musicitem
+    musicitem,
+    'o-loading': Loading
   },
   data() {
     return {
       musicList: [],
       img: "",
-      color: 'transparent'
+      color: 'transparent',
+      loading: false
     };
   },
   computed: {
@@ -70,10 +74,11 @@ export default {
     },
     getList(id) {
       if (!id) return;
+      this.loading = true;
       this.getRecommendInfo(id).then(res => {
-        console.log(res);
         this.musicList = res.tracks;
         this.img = res.coverImgUrl;
+        this.loading  = false;
       });
     }
   },

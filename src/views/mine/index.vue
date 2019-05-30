@@ -2,26 +2,26 @@
   <div class="mine">
     <header class="header pt-7">
       <div class="mine-info" @click="toUserInfo">
-        <img :src="userinfo.avatarUrl" alt >
+        <img :src="getUserInfo.avatarUrl" alt >
         <div style="display:flex;justify-content: space-between;width: 100%;padding: 5px;color: white;align-items:center" >
           <div>
-            <p style="font-size: 1.4rem;padding: 5px 0;">{{userinfo.nickname}}</p>
-            <p>{{userinfo.signature}}</p>
+            <p style="font-size: 1.4rem;padding: 5px 0;">{{getUserInfo.nickname}}</p>
+            <p>{{getUserInfo.signature}}</p>
           </div>
           <span class="iconfont icon-more"></span>
         </div>
       </div>
       <mu-card class="header-card">
         <div class="card-item">
-          <span>{{userinfo.eventCount||0}}</span>
+          <span>{{getUserInfo.eventCount||0}}</span>
           <span class="pt-2 font-sm">动态</span>
         </div>
         <div class="card-item">
-          <span>{{userinfo.followeds||0}}</span>
+          <span>{{getUserInfo.followeds||0}}</span>
           <span class="pt-2 font-sm">粉丝</span>
         </div>
         <div class="card-item">
-          <span>{{userinfo.follows||0}}</span>
+          <span>{{getUserInfo.follows||0}}</span>
           <span class="pt-2 font-sm">关注</span>
         </div>
       </mu-card>
@@ -115,8 +115,7 @@ export default {
   },
   data() {
     return {
-      calls: false,
-      userinfo: {}
+      calls: false
     };
   },
   methods: {
@@ -126,14 +125,7 @@ export default {
     }
   },
   created() {
-    this.userinfo = this.getUserInfo;
-    // this.getLoginStatus().then(res => {
-    //   this.userinfo = this.getUserInfo;
-    //   this.getUserSingList(this.getUserInfo.userId).then(res=>{
-    //     console.log(res)
-    //   })
-
-    // });
+   
   }
 };
 </script>
