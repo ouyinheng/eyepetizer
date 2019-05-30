@@ -5,7 +5,8 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "publish": "scp -r dist ubuntu@118.25.95.147:/home/ubuntu/project"
+    "publish": "scp -r dist ubuntu@118.25.95.147:/home/ubuntu/project",
+    "login": "ssh ubuntu@118.25.95.147"
   },
   "dependencies": {
     "axios": "^0.18.0",

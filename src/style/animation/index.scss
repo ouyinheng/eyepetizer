@@ -1,0 +1,58 @@
+@import './animate.scss';
+
+$reverse:(bounce, flash, pulse, rubberBand, shake, swing, tada, wobble, jello, heartBeat, flip, jackInTheBox);
+$gemini: (bounce, fade, lightSpeed, zoom, roll, slide);
+$direction: (Down, Left, Up, Right);
+
+@each $name in $reverse {
+
+  .#{$name}-enter-active,
+  .#{$name}-leave-active {
+    animation: $name 1.5s;
+  }
+
+  .#{$name}-enter {
+    animation: $name 1.5s;
+  }
+
+  .#{$name}-leave-to {
+    animation: $name 1.5s;
+    animation-direction: reverse;
+  }
+}
+
+@each $name in $gemini {
+  .#{$name+'In'}-enter-active {
+    animation: $name+'In'1.5s;
+  }
+
+  .#{$name+'In'}-leave-active {
+    animation: $name+'Out'1.5s;
+  }
+
+  .#{$name+'In'}-enter {
+    animation: $name+'In'1.5s;
+  }
+
+  .#{$name+'In'}-leave-to {
+    animation: $name+'Out'1.5s;
+  }
+
+  @each $direct in $direction {
+    .#{$name+'In'+$direct}-enter-active {
+      animation: $name+'In'+$direct 1.5s;
+    }
+
+    .#{$name+'In'+$direct}-leave-active {
+      animation: $name+'Out'+$direct 1.5s;
+    }
+
+    .#{$name+'In'+$direct}-enter {
+      animation: $name+'In'+$direct 1.5s;
+    }
+
+    .#{$name+'In'+$direct}-leave-to {
+      animation: $name+'Out'+$direct 1.5s;
+    }
+  }
+}

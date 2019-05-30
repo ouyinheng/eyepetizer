@@ -35,7 +35,7 @@
 
 <script>
 import Header from "@/components/oHeader.vue";
-import Loading from "@/components/loading.vue";
+import Loading from "@/components/Loading";
 import recomitem from "@/components/recom-item.vue";
 import { mapActions } from "vuex";
 export default {

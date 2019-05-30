@@ -32,4 +32,17 @@ yarn server
 yarn build
 ```
 8. demo展示
-![image](./assets/roulette.gig)
+
+![image](./assets/roulette.gif)
+
+
+9.组件库
+```
+1.  muse-ui
+2.  http://www.best-html5.net/cubee/cubeex/#/menu
+```
+10. 动效
+> 动效封装在style/animate/index.scss中，与transition搭配只用，有一部分没有使用
+```
+https://daneden.github.io/animate.css/?
+```

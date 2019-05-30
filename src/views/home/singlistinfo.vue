@@ -34,7 +34,7 @@
 import { mapGetters, mapActions, mapMutations } from "vuex";
 import Header from "@/components/oHeader.vue";
 import musicitem from "@/components/music-item.vue";
-import Loading from "@/components/loading.vue";
+import Loading from "@/components/Loading";
 
 export default {
   name: "singlistinfo",
