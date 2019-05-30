@@ -32,4 +32,4 @@ yarn server
 yarn build
 ```
 8. demo展示
-![image](./assets/roulette.gig)
+![image](./assets/roulette.gif)
