@@ -1,5 +1,8 @@
 <template>
   <div class="musicplay">
+    <div class="blur" :style="{
+    backgroundImage: `url(${info.songs[0].al.picUrl})`
+  }"></div>
     <header class="header font-md">
       <mu-button icon small color="black" @click="back">
         <span class="iconfont icon-back font-lg"></span>
@@ -20,30 +23,38 @@
       v-if="getNowPlay!==-1"
       style="display:flex;flex-direction:column;justify-content:space-around;"
     >
-      <img :src="info.songs[0].al.picUrl" :class="{play: getPlay}" alt>
-      <div>
-        <mu-slider class="demo-slider" v-model="slide" color="#ff4545"></mu-slider>
-        <div class="flex around -center font-lg" style="width: 70%;margin: 20px auto 0;">
-          <span class="iconfont icon-zhuanfa"></span>
-          <span class="iconfont icon-xihuan"></span>
-          <span class="iconfont icon-pinglun"></span>
-          <span class="iconfont icon-xiazai1"></span>
-        </div>
+      <div class="albumImage">
+        <img :src="info.songs[0].al.picUrl" :class="{play: getPlay}" alt>
       </div>
-      <div class="flex around -center font-lg">
-        <span class="iconfont icon-prev color-red font-xl" style="font-size: 3.8rem;" @click="prev"></span>
-        <span
-          :class="{
+      <div class="flex-column around">
+        <div>
+          <mu-slider class="demo-slider" v-model="slide" color="#ff4545"></mu-slider>
+          <div class="flex around -center font-lg" style="width: 70%;margin: 20px auto;">
+            <span class="iconfont icon-zhuanfa"></span>
+            <span class="iconfont icon-xihuan"></span>
+            <span class="iconfont icon-pinglun"></span>
+            <span class="iconfont icon-xiazai1"></span>
+          </div>
+        </div>
+        <div class="flex around -center font-lg">
+          <span
+            class="iconfont icon-prev color-red font-xl"
+            style="font-size: 3.8rem;"
+            @click="prev"
+          ></span>
+          <span
+            :class="{
             'iconfont':true, 
             'icon-bofang1':!getPlay,
             'icon-zanting1': getPlay,
             'color-red': true,
             'font-xl': true
           }"
-          style="font-size: 4.8rem;"
-          @click="changePlayStatus"
-        ></span>
-        <span class="iconfont icon-xiayishou color-red font-xl" @click="next"></span>
+            style="font-size: 4.8rem;"
+            @click="changePlayStatus"
+          ></span>
+          <span class="iconfont icon-xiayishou color-red font-xl" @click="next"></span>
+        </div>
       </div>
     </section>
   </div>
@@ -129,6 +140,32 @@ export default {
   right: 0;
   bottom: 0;
   padding: 30px 0 0;
+  position: relative;
+  .blur {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+    filter: blur(100px);
+    background-position: center;
+    background-size: cover;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    &:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, .5);
+      background: linear-gradient(direction, rgba(0, 0, 0, .5), rgba(255,255,255, .5), rgba(0, 0, 0, .5));
+      background-attachment: fixed;
+      z-index: -1;
+    }
+  }
   .color-red {
     color: #ff4545;
   }
@@ -153,17 +190,25 @@ export default {
     left: 0;
     box-sizing: border-box;
     padding: 0px 10px 20px;
+    .albumImage {
+      width: 17rem;
+      height: 17rem;
+      overflow: hidden;
+      margin: 0 auto;
+    }
     img {
-      width: 50%;
-      display: block;
-      background-color: transparent;
-      margin: 50px auto 0;
-      border-radius: 50%;
-      box-shadow: 0 1px 70px 1px #ff4545;
+      width: 100%;
+      height: 100%;
+      z-index: 10;
+      -o-object-fit: cover;
+      object-fit: cover;
+      -o-object-position: 50% 50%;
+      object-position: 50% 50%;
+      border-radius: 0.5rem;
     }
   }
   .play {
-    animation: showplay 10s linear infinite;
+    // animation: showplay 10s linear infinite;
   }
 }
 @keyframes showplay {

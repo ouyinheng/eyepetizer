@@ -2,8 +2,8 @@ module.exports = {
   publicPath: '.', 
   productionSourceMap: false, 
   runtimeCompiler: true,
-  // outputDir: '../demo/www',
-  outputDir: 'dist',
+  outputDir: '../demo/www',
+  // outputDir: 'dist',
   // 代理
   devServer: {
     proxy: {

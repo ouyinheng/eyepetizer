@@ -16,77 +16,45 @@
         <mu-load-more @refresh="refresh" :refreshing="refreshing" :loading="loading" @load="load">
           <div class="flex between mt-2">
             <div class="md-button font-md">添加好友</div>
-            <div class=" md-button font-md">发布动态</div>
+            <div class="md-button font-md">发布动态</div>
           </div>
           <mu-list class>
-            <mu-card
-              style="width: 100%; max-width: 375px; margin: 10px auto 20px;border-radius: 10px;"
-              class="pr-1 pl-1 pb-2"
-              v-for="(item, index) in getDynamic"
-              :key="index"
-            >
-              <mu-card-header class="header pb-1">
-                <mu-avatar color="indigo" size="40">
-                  <img class="icon" v-lazy="item.user.avatarUrl" :alt="item.user.nickname">
-                </mu-avatar>
-                <div class="text ml-1">
-                  <p class="font-sm pb-1">{{item.user.nickname}}</p>
-                  <p class="font-sm">{{getLocalTime(item.showTime)}}</p>
+            <div style="width: 100%;" class="pb-2" v-for="(item, index) in getDynamic" :key="index">
+              <div class="flex">
+                <div class="header pb-1">
+                  <mu-avatar color="indigo" size="40">
+                    <img class="icon" v-lazy="item.user.avatarUrl" :alt="item.user.nickname">
+                  </mu-avatar>
                 </div>
-              </mu-card-header>
-              <p class="pl-2 pt-2 pb-2">{{JSON.parse(item.json).msg}}</p>
-              <section class="content" v-if="JSON.parse(item.json).video">
-                <video
-                  :ref="'video'+index"
-                  :poster="JSON.parse(item.json).video.coverUrl"
-                  @click="setPlay('video'+index,index,JSON.parse(item.json).video.videoId)"
-                ></video>
-              </section>
-              <section class="content" v-else>
-                <div class="flex">
-                  <div
-                    class="pics"
-                    v-for="(items, indexs) in item.pics"
-                    :key="indexs"
-                    :style="`backgroundImage:url(${items.squareUrl})`"
-                  ></div>
-                  <div class="pics" v-if="item.pics.length%3<=1&&item.pics.length%3>0"></div>
-                  <div class="pics" v-if="item.pics.length%3<=2&&item.pics.length%3>0"></div>
-                </div>
-              </section>
-            </mu-card>
-            <!-- <div v-for="(item, index) in getDynamic" :key="index" class="mb-2 pt-1 pb-1">
-              <div class="header pb-1">
-                <mu-avatar color="indigo" size="40">
-                  <img class="icon" :src="item.user.avatarUrl" :alt="item.user.nickname">
-                </mu-avatar>
-                <div class="text ml-1">
-                  <p class="font-md pb-1">{{item.user.nickname}}</p>
-                  <p>{{getLocalTime(item.showTime)}}</p>
+                <div class="right pt-2 pb-4">
+                  <div class="text ml-1 pl-2">
+                    <p class="font-sm pb-1">{{item.user.nickname}}</p>
+                    <p class="font-sm" style="color:#C0C4CC">{{getLocalTime(item.showTime)}}</p>
+                  </div>
+                  <p class="pl-2 pt-2 pb-2" style="line-height: 1.5rem">{{JSON.parse(item.json).msg}}</p>
+                  <section class="content" v-if="JSON.parse(item.json).video">
+                    <video
+                      :ref="'video'+index"
+                      :poster="JSON.parse(item.json).video.coverUrl"
+                      @click="setPlay('video'+index,index,JSON.parse(item.json).video.videoId)"
+                    ></video>
+                  </section>
+                  <section class="content" v-else>
+                    <div class="flex">
+                      <div
+                        class="pics"
+                        v-for="(items, indexs) in item.pics"
+                        :key="indexs"
+                        :style="`backgroundImage:url(${items.squareUrl})`"
+                      ></div>
+                      <div class="pics" v-if="item.pics.length%3<=1&&item.pics.length%3>0"></div>
+                      <div class="pics" v-if="item.pics.length%3<=2&&item.pics.length%3>0"></div>
+                    </div>
+                  </section>
                 </div>
               </div>
-              <section class="content" v-if="JSON.parse(item.json).video">
-                <p class="pt-1 pb-1">{{JSON.parse(item.json).msg}}</p>
-                <video
-                  :ref="'video'+index"
-                  :poster="JSON.parse(item.json).video.coverUrl"
-                  @click="setPlay('video'+index,index,JSON.parse(item.json).video.videoId)"
-                ></video>
-              </section>
-              <section class="content" v-else>
-                <p class="pt-1 pb-1">{{JSON.parse(item.json).msg}}</p>
-                <div class="flex">
-                  <div
-                    class="pics"
-                    v-for="(items, indexs) in item.pics"
-                    :key="indexs"
-                    :style="`backgroundImage:url(${items.squareUrl})`"
-                  ></div>
-                  <div class="pics" v-if="item.pics.length%3<=1&&item.pics.length%3>0"></div>
-                  <div class="pics" v-if="item.pics.length%3<=2&&item.pics.length%3>0"></div>
-                </div>
-              </section>
-            </div>-->
+              <mu-divider></mu-divider>
+            </div>
           </mu-list>
         </mu-load-more>
       </mu-container>
@@ -96,7 +64,7 @@
 
 <script>
 import { mapActions, mapGetters } from "vuex";
-import Skeleton from './Skeleton.vue';
+import Skeleton from "./Skeleton.vue";
 export default {
   name: "circles",
   computed: {
@@ -160,9 +128,9 @@ export default {
   },
   created() {
     this.loadings = true;
-    this.getUserDynamic({ pagesize: 30, refresh: false }).then(res=>{
+    this.getUserDynamic({ pagesize: 30, refresh: false }).then(res => {
       this.loadings = false;
-    })
+    });
   }
 };
 </script>
@@ -195,6 +163,7 @@ export default {
     width: 100%;
     box-sizing: border-box;
     padding: 0 10px !important;
+    background-color: white;
     .md-button {
       width: 40%;
       max-width: 200px;
@@ -209,8 +178,9 @@ export default {
   }
   .header {
     width: 100%;
-    display: flex;
-    align-items: center;
+    max-width: 40px;
+  }
+  .right {
     .text {
       p:nth-of-type(1) {
         color: #51b7ff;

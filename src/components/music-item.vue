@@ -4,7 +4,7 @@
     <div class="info">
       <div class="font-lg over-spot" style="width: 90%;padding: 5px 0;color: #26272a">{{title}}</div>
       <div
-        style="color: #7e7e7e;box-sizing:border-box;width:90%;"
+        style="color: #7e7e7e;box-sizing:border-box;width:90%;line-height:20px"
         class="over-spot font-md"
       >{{content}}</div>
     </div>
