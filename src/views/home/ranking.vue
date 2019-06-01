@@ -1,7 +1,7 @@
 <template>
-  <div class="ranking">
+  <div class="ranking" v-loading="loading">
     <o-header :top="0" color="white" title="排行榜"></o-header>
-    <o-loading :loading="loading"></o-loading>
+    <!-- <o-loading :loading="loading"></o-loading> -->
     <section class="section">
       <div class="mt-2 article">
         <h3 class="font-lg mb-2">官方榜</h3>

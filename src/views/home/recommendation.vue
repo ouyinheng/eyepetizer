@@ -1,5 +1,5 @@
 <template>
-  <div class="recommendation">
+  <div class="recommendation" v-loading="loading">
     <o-header :top="0"></o-header>
     <!-- <header class="header bg-grey" :style="{
       backgroundImage: `url(${img})`
@@ -46,7 +46,8 @@ export default {
   data() {
     return {
       musicList: [],
-      img: ""
+      img: "",
+      loading: false
     };
   },
   computed: {
@@ -67,7 +68,9 @@ export default {
     }
   },
   created() {
+    this.loading = true;
     this.getDayRecom().then(res => {
+      this.loading = false;
       this.musicList = res;
       this.img = res[0].album.blurPicUrl;
     });

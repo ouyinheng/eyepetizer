@@ -1,5 +1,5 @@
 <template>
-  <div class="singlistinfo">
+  <div class="singlistinfo" v-loading="loading">
     <o-header :top="0" :color="color"></o-header>
     <header class="header bg-grey" :style="{
       backgroundImage: `url(${img})`
@@ -20,7 +20,7 @@
         ></musicitem>
       </mu-list>
     </section>
-    <o-loading :loading="loading"></o-loading>
+    <!-- <o-loading :loading="loading"></o-loading> -->
     <!-- <mu-list>
       <mu-list-item button :ripple="true" v-for="(item, index) in musicList" :key="index">
         <mu-list-item-title>{{item.name}}</mu-list-item-title>
