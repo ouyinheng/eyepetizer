@@ -19,30 +19,36 @@ font-sm :12px
 font-md: 14px
 font-lg" 16px
 ```
+
 5. icon
 ```
 请联系我在阿里巴巴icon上添加成员
 ```
-6. 运行
-```
-yarn server
-```
-7. 打包
-```
-yarn build
-```
-8. demo展示
-
-![image](./assets/roulette.gif)
-
-
-9.组件库
+6.组件库
 ```
 1.  muse-ui
 2.  http://www.best-html5.net/cubee/cubeex/#/menu
 ```
-10. 动效
+
+7. 动效
 > 动效封装在style/animate/index.scss中，与transition搭配只用，有一部分没有使用
 ```
 https://daneden.github.io/animate.css/?
 ```
+8. UI
+
+[link](https://www.ui.cn/detail/300253.html?tdsourcetag=s_pcqq_aiomsg)
+
+9. 运行
+```
+yarn serve
+```
+
+10. 打包
+```
+yarn build
+```
+
+11. demo展示
+
+![image](./assets/roulette.gif)

@@ -11,7 +11,9 @@
       <span class>...</span>
     </header>
     <section class="section" v-if="getNowPlay==-1">
-      <img src="logo.png" alt>
+      <div class="albumImage">
+        <!-- <img src="logo.png" alt> -->
+      </div>
       <div style="color:#b4b4b4;text-align:center;margin-top: 20px;">您暂时没有播放音乐</div>
       <div style="color:#ff4545;text-align:center;margin-top: 20px;">
         <span>寻找音乐</span>
@@ -29,17 +31,17 @@
       <div class="flex-column around">
         <div>
           <mu-slider class="demo-slider" v-model="slide" color="#ff4545"></mu-slider>
-          <div class="flex around -center font-lg" style="width: 70%;margin: 20px auto;">
+          <div class="flex around -center font-lg" style="width: 90%;margin: 20px auto;color:white;">
             <span class="iconfont icon-zhuanfa"></span>
             <span class="iconfont icon-xihuan"></span>
             <span class="iconfont icon-pinglun"></span>
             <span class="iconfont icon-xiazai1"></span>
           </div>
         </div>
-        <div class="flex around -center font-lg">
+        <div class="flex around -center mt-1">
           <span
-            class="iconfont icon-prev color-red font-xl"
-            style="font-size: 3.8rem;"
+            class="iconfont icon-prev color-red"
+            style="font-size: 3rem;"
             @click="prev"
           ></span>
           <span
@@ -53,7 +55,7 @@
             style="font-size: 4.8rem;"
             @click="changePlayStatus"
           ></span>
-          <span class="iconfont icon-xiayishou color-red font-xl" @click="next"></span>
+          <span class="iconfont icon-xiayishou color-red font-lg" style="font-size: 2.3rem;" @click="next"></span>
         </div>
       </div>
     </section>
@@ -167,7 +169,7 @@ export default {
     }
   }
   .color-red {
-    color: #ff4545;
+    color: white;
   }
   .font-xl {
     font-size: 3rem;
@@ -205,6 +207,7 @@ export default {
       -o-object-position: 50% 50%;
       object-position: 50% 50%;
       border-radius: 0.5rem;
+      background-color: transparent;
     }
   }
   .play {

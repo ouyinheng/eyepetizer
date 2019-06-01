@@ -31,7 +31,10 @@
                     <p class="font-sm pb-1">{{item.user.nickname}}</p>
                     <p class="font-sm" style="color:#C0C4CC">{{getLocalTime(item.showTime)}}</p>
                   </div>
-                  <p class="pl-2 pt-2 pb-2" style="line-height: 1.5rem">{{JSON.parse(item.json).msg}}</p>
+                  <p
+                    class="pl-2 pt-2 pb-2"
+                    style="line-height: 1.5rem"
+                  >{{JSON.parse(item.json).msg}}</p>
                   <section class="content" v-if="JSON.parse(item.json).video">
                     <video
                       :ref="'video'+index"
@@ -40,16 +43,18 @@
                     ></video>
                   </section>
                   <section class="content" v-else>
-                    <div class="flex">
-                      <div
-                        class="pics"
-                        v-for="(items, indexs) in item.pics"
-                        :key="indexs"
-                        :style="`backgroundImage:url(${items.squareUrl})`"
-                      ></div>
+                    <div class="flex" v-preview="item.pics.map(src=>src.squareUrl)">
+                      <img class="pics" v-for="(items, indexs) in item.pics" :key="indexs" :src="items.squareUrl">
                       <div class="pics" v-if="item.pics.length%3<=1&&item.pics.length%3>0"></div>
                       <div class="pics" v-if="item.pics.length%3<=2&&item.pics.length%3>0"></div>
                     </div>
+                    <!-- <div>
+                      <img :src="item.album.picUrl" alt="">
+                      <div>
+                        <span>{{item.song.name}}</span>
+                        <span></span>
+                      </div>
+                    </div> -->
                   </section>
                 </div>
               </div>
@@ -202,9 +207,9 @@ export default {
       .pics {
         width: 30%;
         height: 100px;
-        background-size: 100%;
-        // background-position: center;
         margin-bottom: 5px;
+        border-radius: 5px;
+
       }
     }
   }

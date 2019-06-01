@@ -26,9 +26,9 @@
         </div>
       </mu-card>
     </header>
-    <section class="section">
+    <section class="section" >
       <mu-list>
-        <mu-list-item button :ripple="true">
+        <mu-list-item v-riplles="true">
           <mu-list-item-title>
             <span class="iconfont icon-tongzhi mr-1" style="font-size: 1.2rem"></span>
             <span style="font-size: 1.2rem">我的消息</span>
@@ -37,7 +37,7 @@
             <span class="iconfont icon-more"></span>
           </mu-list-item-action>
         </mu-list-item>
-        <mu-list-item button :ripple="true">
+        <mu-list-item v-riplles="true">
           <mu-list-item-title>
             <span class="iconfont icon-huiyuanzhongxin1 mr-1" style="font-size: 1.2rem"></span>
             <span style="font-size: 1.2rem">会员中心</span>
@@ -46,7 +46,7 @@
             <span class="iconfont icon-more"></span>
           </mu-list-item-action>
         </mu-list-item>
-        <mu-list-item button :ripple="true">
+        <mu-list-item v-riplles="true">
           <mu-list-item-title>
             <span class="iconfont icon-huanfu mr-1" style="font-size: 1.2rem"></span>
             <span style="font-size: 1.2rem">个性换肤</span>
@@ -55,7 +55,7 @@
             <span class="iconfont icon-more"></span>
           </mu-list-item-action>
         </mu-list-item>
-        <mu-list-item button :ripple="true">
+        <mu-list-item v-riplles="true">
           <mu-list-item-title>
             <span class="iconfont icon-richscan_icon mr-1" style="font-size: 1.2rem"></span>
             <span style="font-size: 1.2rem">扫一扫</span>
@@ -64,7 +64,7 @@
             <span class="iconfont icon-more"></span>
           </mu-list-item-action>
         </mu-list-item>
-        <mu-list-item button :ripple="true" @click="calls = !calls">
+        <mu-list-item v-riplles="true" @click="calls = !calls">
           <mu-list-item-title>
             <span class="iconfont icon-bofang mr-1" style="font-size: 1.2rem"></span>
             <span style="font-size: 1.2rem">仅WIFI联网</span>
@@ -73,7 +73,7 @@
             <mu-switch v-model="calls" readonly></mu-switch>
           </mu-list-item-action>
         </mu-list-item>
-        <mu-list-item button :ripple="true">
+        <mu-list-item v-riplles="true">
           <mu-list-item-title>
             <span class="iconfont icon-time mr-1" style="font-size: 1.2rem"></span>
             <span style="font-size: 1.2rem">定时关闭</span>
@@ -82,7 +82,7 @@
             <span class="iconfont icon-more"></span>
           </mu-list-item-action>
         </mu-list-item>
-        <mu-list-item button :ripple="true">
+        <mu-list-item v-riplles="true">
           <mu-list-item-title>
             <span class="iconfont icon-shanchu mr-1" style="font-size: 1.2rem"></span>
             <span style="font-size: 1.2rem">清除缓存</span>
@@ -91,7 +91,7 @@
             <span class="iconfont icon-more"></span>
           </mu-list-item-action>
         </mu-list-item>
-        <mu-list-item button :ripple="true">
+        <mu-list-item v-riplles="true">
           <mu-list-item-title>
             <span class="iconfont icon-shezhi1 mr-1" style="font-size: 1.2rem"></span>
             <span style="font-size: 1.2rem">设置</span>

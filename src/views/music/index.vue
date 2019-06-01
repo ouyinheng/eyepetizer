@@ -9,7 +9,7 @@
       </div>
     </div>
     <mu-list toggle-nested>
-      <div button :ripple="true" nested style="padding: 10px 0;display:flex;align-items:center;">
+      <div v-riplles="true" nested style="padding: 10px 0;display:flex;align-items:center;">
         <mu-list-item-title class="font-lg">
           <span class="iconfont icon-gengduo_tinggemianliuliang_ icon mr-2"></span>最近播放
         </mu-list-item-title>
@@ -17,7 +17,7 @@
           <span class="iconfont icon-more icon font-lg"></span>
         </mu-list-item-action>
       </div>
-      <div button :ripple="true" nested style="padding: 10px 0;display:flex;align-items:center;">
+      <div v-riplles="true" nested style="padding: 10px 0;display:flex;align-items:center;">
         <mu-list-item-title class="font-lg">
           <span class="iconfont icon-xia icon mr-2"></span>我的下载
         </mu-list-item-title>
@@ -25,7 +25,7 @@
           <span class="iconfont icon-more icon font-lg"></span>
         </mu-list-item-action>
       </div>
-      <div button :ripple="true" nested style="padding: 10px 0;display:flex;align-items:center;">
+      <div v-riplles="true" nested style="padding: 10px 0;display:flex;align-items:center;">
         <mu-list-item-title class="font-lg">
           <span class="iconfont icon-diantai2 icon mr-2"></span>我的电台
         </mu-list-item-title>
@@ -33,7 +33,7 @@
           <span class="iconfont icon-more icon font-lg"></span>
         </mu-list-item-action>
       </div>
-      <div button :ripple="true" nested style="padding: 10px 0;display:flex;align-items:center;">
+      <div v-riplles="true" nested style="padding: 10px 0;display:flex;align-items:center;">
         <mu-list-item-title class="font-lg">
           <span class="iconfont icon-xihuan1 icon mr-2"></span>我的收藏
         </mu-list-item-title>
