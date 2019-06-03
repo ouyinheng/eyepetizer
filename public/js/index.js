@@ -17,35 +17,57 @@
  * under the License.
  */
 var app = {
-    // Application Constructor
-    initialize: function() {
-        document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
-        document.addEventListener('backbutton', this.back.bind(this),false)
-    },
-  
-    // deviceready Event Handler
-    //
-    // Bind any cordova events here. Common events are:
-    // 'pause', 'resume', etc.
-    onDeviceReady: function() {
-      alert('init')
-      this.receivedEvent('deviceready');
-    },
-  
-    // Update DOM on a Received Event
-    receivedEvent: function(id) {
-        var parentElement = document.getElementById(id);
-        var listeningElement = parentElement.querySelector('.listening');
-        var receivedElement = parentElement.querySelector('.received');
-  
-        listeningElement.setAttribute('style', 'display:none;');
-        receivedElement.setAttribute('style', 'display:block;');
-  
-        console.log('Received Event: ' + id);
-    },
-    back: function() {
-      alert('back')
+  // Application Constructor
+  initialize: function () {
+    document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
+    document.addEventListener('backbutton', this.onBackKeyDown.bind(this), false)
+  },
+
+  // deviceready Event Handler
+  //
+  // Bind any cordova events here. Common events are:
+  // 'pause', 'resume', etc.
+  onDeviceReady: function () {
+    this.receivedEvent('deviceready');
+  },
+
+  // Update DOM on a Received Event
+  receivedEvent: function (id) {
+    var parentElement = document.getElementById(id);
+    var listeningElement = parentElement.querySelector('.listening');
+    var receivedElement = parentElement.querySelector('.received');
+
+    listeningElement.setAttribute('style', 'display:none;');
+    receivedElement.setAttribute('style', 'display:block;');
+
+    console.log('Received Event: ' + id);
+  },
+  onBackKeyDown: function () {
+    console.log(window.location.href)
+    console.log(window.location.href.split('#/')[1])
+    const href = window.location.href.split('#/')[1];
+    const list = ['home', 'discover', 'circle', 'mine'];
+    if(!list.includes(href)) {
+      history.back()
+      return;
     }
-  };
-  
-  app.initialize();
+    window.plugins.toast.showLongCenter('再按一次退出', function (a) {
+      console.log('toast success: ' + a)
+    }, function (b) {
+      alert('toast error: ' + b)
+    })
+    document.removeEventListener("backbutton", this.onBackKeyDown, false); // 注销返回键
+    document.addEventListener("backbutton", this.exitApp, false); //绑定退出事件
+    // 3秒后重新注册
+    var intervalID = window.setInterval(function () {
+      window.clearInterval(intervalID);
+      document.removeEventListener("backbutton", this.exitApp, false); // 注销返回键
+      document.addEventListener("backbutton", this.onBackKeyDown, false); // 返回键
+    }, 3000);
+  },
+  exitApp: function() {
+    navigator.app.exitApp();
+  }
+};
+
+app.initialize();
