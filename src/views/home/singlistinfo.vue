@@ -1,11 +1,18 @@
 <template>
   <div class="singlistinfo" v-loading="loading">
     <o-header :top="0" :color="color"></o-header>
-    <header class="header bg-grey" :style="{
+    <header class="header bg-grey">
+      <div class="blurimg" :style="{
       backgroundImage: `url(${img})`
-    }">
-      <div id="blur-img" style="opacity: 1;">
-        <div class="blur-mask" style="display: block;"></div>
+    }"></div>
+      <div class="blur-mask">
+        <div class="p-2 flex" style="width:100%;">
+          <img :src="img" alt>
+          <div class="p-2" style="color:white;">
+            <h3 class="font-lg pb-2">{{info.name}}</h3>
+            <p class="font-sm" style="color: gainsboro; line-height: 14px;height: 42px;overflow:hidden">{{info.description}}</p>
+          </div>
+        </div>
       </div>
     </header>
     <section class="p-2 section">
@@ -41,14 +48,15 @@ export default {
   components: {
     "o-header": Header,
     musicitem,
-    'o-loading': Loading
+    "o-loading": Loading
   },
   data() {
     return {
       musicList: [],
       img: "",
-      color: 'transparent',
-      loading: false
+      color: "transparent",
+      loading: false,
+      info: {}
     };
   },
   computed: {
@@ -78,25 +86,27 @@ export default {
       this.getRecommendInfo(id).then(res => {
         this.musicList = res.tracks;
         this.img = res.coverImgUrl;
-        this.loading  = false;
+        this.info = res;
+        this.loading = false;
       });
     }
   },
   created() {
     let id = this.$route.query.id;
     this.getList(id);
-    
   },
   mounted() {
-    document.getElementsByClassName('singlistinfo')[0].addEventListener("scroll", (e) => {
-      let top = document.getElementsByClassName('singlistinfo')[0].scrollTop;
-      console.log(top)
-      if(top >= 150) {
-        this.color = 'white'
-      } else {
-        this.color = 'transparent'
-      }
-    })
+    document
+      .getElementsByClassName("singlistinfo")[0]
+      .addEventListener("scroll", e => {
+        let top = document.getElementsByClassName("singlistinfo")[0].scrollTop;
+        console.log(top);
+        if (top >= 150) {
+          this.color = "white";
+        } else {
+          this.color = "transparent";
+        }
+      });
   }
 };
 </script>
@@ -109,25 +119,62 @@ export default {
   background-color: white;
   .header {
     width: 100%;
-    height: 230px;
+    height: 300px;
     overflow: hidden;
-    background-size: 100%;
-    // background-position: center;
+    position: relative;
+    .blurimg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 0;
+      background-size: cover;
+      filter: blur(40px);
+      background-position: center left;
+      background-size: 100%;
+      background-repeat: no-repeat;
+      z-index: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      &:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.3);
+        background: linear-gradient(
+          direction,
+          rgba(0, 0, 0, 0.5),
+          rgba(255, 255, 255, 1),
+          rgba(0, 0, 0, 0.5)
+        );
+        background-attachment: fixed;
+        z-index: -1;
+      }
+    }
+    .blur-mask {
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      background-color: transparent;
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      img {
+        width: 130px;
+        min-width: 130px;
+        height: 130px;
+        border-radius: 5px;
+      }
+    }
   }
   .section {
     overflow: auto;
-  }
-  .blur-mask {
-    position: absolute;
-    width: 100%;
-    height: 230px;
-    background-color: #000;
-    filter: alpha(opacity=30);
-    -moz-opacity: 0.3;
-    opacity: 0.3;
-    top: 0;
-    left: 0;
-    overflow: hidden;
   }
 }
 </style>

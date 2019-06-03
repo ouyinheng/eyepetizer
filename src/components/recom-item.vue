@@ -23,7 +23,7 @@ export default {
 
 <style lang="scss" scoped>
 .songlist-item {
-  width: 30%;
+  width: 100%;
   margin-bottom: 10px;
   overflow: hidden;
   position: relative;

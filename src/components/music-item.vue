@@ -2,7 +2,7 @@
   <div class="music-item" @click="clickRow">
     <img class="music-cover" v-lazy="imgUrl">
     <div class="info">
-      <div class="font-lg over-spot" style="width: 90%;padding: 5px 0;color: #26272a">{{title}}</div>
+      <div class="font-lg over-spot" style="width: 90%;padding: 5px 0;color: #26272a">{{title.replace(getUserInfo.nickname+'喜欢的音乐', '我喜欢的音乐')}}</div>
       <div
         style="color: #7e7e7e;box-sizing:border-box;width:90%;line-height:20px"
         class="over-spot font-md"
@@ -13,16 +13,22 @@
 
 
 <script>
+import {mapGetters} from 'vuex';
 export default {
   name: "music-item",
   props: ["imgUrl", "title", "content"],
   data() {
     return {};
   },
+  computed: {
+    ...mapGetters(['getUserInfo'])
+  },
   methods: {
     clickRow() {
       this.$emit("click-row");
     }
+  },
+  created() {
   }
 };
 </script>

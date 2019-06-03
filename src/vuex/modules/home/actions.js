@@ -27,3 +27,13 @@ export const getTopListDetail = ({commit}) => {
       return res;
   })
 }
+export const getSongListClassify = ({commit}) => {
+  return Svc.getSongListClassify().then( res => {
+      return res;
+  })
+}
+export const getSongListInfo = ({commit}, params) => {
+  return Svc.getSongListInfo(params).then( res => {
+      return res;
+  })
+}

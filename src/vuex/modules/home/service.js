@@ -14,3 +14,8 @@ export const getDayRecom = () => axios.get(`${host}/recommend/songs`)
 
 // 排行榜
 export const getTopListDetail = () => axios.get(`${host}/toplist/detail`)
+
+// 歌单分类
+export const getSongListClassify = () => axios.get(`${host}/playlist/hot`)
+// 
+export const getSongListInfo = (params) => axios.get(`${host}/top/playlist/highquality?before=${params.before}&limit=${params.limit}&cat=${params.cat}`)

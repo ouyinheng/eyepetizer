@@ -28,7 +28,9 @@
           <span class="iconfont icon-more"></span>
         </h3>
         <div class="songlist mt-2">
-          <recom-item v-for="(item, index) in getRecommList.slice(0, 9)" :key="index" :value="item" @row-click="toSingListInfo(item.id)"></recom-item>
+          <div v-for="(item, index) in getRecommList.slice(0, 9)" :key="index" style="width:30%;">
+            <recom-item :value="item" @row-click="toSingListInfo(item.id)"></recom-item>
+          </div>
         </div>
       </div>
       <!-- <div class="mt-6">
@@ -92,7 +94,7 @@ export default {
           title: "歌单",
           icon: "icon-gedan",
           color: "#BC78FF",
-          url: 'singlist'
+          url: '/playlists'
         },
         {
           title: "电台",

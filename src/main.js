@@ -5,6 +5,7 @@ import router from './router/index.js'
 import store from './vuex'
 import MuseUI from 'muse-ui'
 import 'muse-ui/dist/muse-ui.css'
+
 import VueLazyload from 'vue-lazyload'
 import './style/index.scss';
 // 自定义指令
@@ -25,7 +26,6 @@ Vue.use(VueTouch, {
 VueTouch.config.swipe = {
   threshold: 100 
 }
-
 new Vue({
   router,
   store,
