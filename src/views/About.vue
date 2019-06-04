@@ -34,12 +34,10 @@
 // @ is an alias to /src
 import { mapActions, mapGetters } from "vuex";
 
-import HelloWorld from "@/components/HelloWorld.vue";
 
 export default {
   name: "About",
   components: {
-    HelloWorld
   },
    computed: {
     ...mapGetters(['getUserInfo'])

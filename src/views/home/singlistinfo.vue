@@ -1,6 +1,7 @@
 <template>
   <div class="singlistinfo" v-loading="loading">
-    <o-header :top="0" :color="color"></o-header>
+    <o-header :top="0" :color="color" :img="img" :tp="tp"></o-header>
+    <!-- <appbar title="每日推荐" :menu="true"></appbar> -->
     <header class="header bg-grey">
       <div class="blurimg" :style="{
       backgroundImage: `url(${img})`
@@ -10,7 +11,10 @@
           <img :src="img" alt>
           <div class="p-2" style="color:white;">
             <h3 class="font-lg pb-2">{{info.name}}</h3>
-            <p class="font-sm" style="color: gainsboro; line-height: 14px;height: 42px;overflow:hidden">{{info.description}}</p>
+            <p
+              class="font-sm"
+              style="color: gainsboro; line-height: 14px;height: 42px;overflow:hidden"
+            >{{info.description}}</p>
           </div>
         </div>
       </div>
@@ -27,28 +31,23 @@
         ></musicitem>
       </mu-list>
     </section>
-    <!-- <o-loading :loading="loading"></o-loading> -->
-    <!-- <mu-list>
-      <mu-list-item button :ripple="true" v-for="(item, index) in musicList" :key="index">
-        <mu-list-item-title>{{item.name}}</mu-list-item-title>
-      </mu-list-item>
-    </mu-list>-->
   </div>
 </template>
 
 <script>
-// import { getRecomm } from "@/config/recommend.request";
 import { mapGetters, mapActions, mapMutations } from "vuex";
 import Header from "@/components/oHeader.vue";
 import musicitem from "@/components/music-item.vue";
 import Loading from "@/components/Loading";
+import appbar from "@/components/appbar";
 
 export default {
   name: "singlistinfo",
   components: {
     "o-header": Header,
     musicitem,
-    "o-loading": Loading
+    "o-loading": Loading,
+    appbar
   },
   data() {
     return {
@@ -56,7 +55,8 @@ export default {
       img: "",
       color: "transparent",
       loading: false,
-      info: {}
+      info: {},
+      tp: false
     };
   },
   computed: {
@@ -99,12 +99,15 @@ export default {
     document
       .getElementsByClassName("singlistinfo")[0]
       .addEventListener("scroll", e => {
+        let domHeader = document.getElementsByClassName('header')[0];
+        let height = domHeader.clientHeight;
         let top = document.getElementsByClassName("singlistinfo")[0].scrollTop;
-        console.log(top);
-        if (top >= 150) {
-          this.color = "white";
+        if(height-top<=80) {
+          this.tp = true
+          this.color = 'gray';
         } else {
-          this.color = "transparent";
+          this.tp = false
+          this.color = 'transparent';
         }
       });
   }

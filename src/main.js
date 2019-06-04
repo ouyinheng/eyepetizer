@@ -10,6 +10,8 @@ import VueLazyload from 'vue-lazyload'
 import './style/index.scss';
 // 自定义指令
 import './directive'
+import vuePicturePreview from 'vue-picture-preview'
+Vue.use(vuePicturePreview)
 Vue.use(VueLazyload, {
   preLoad: 1.3,
   error: 'preload.png',
@@ -19,13 +21,7 @@ Vue.use(VueLazyload, {
 Vue.config.productionTip = false
 Vue.use(MuseUI)
 Vue.prototype.axios = axios
-import VueTouch from 'vue-touch';
-Vue.use(VueTouch, {
-  name: 'v-touch'
-});
-VueTouch.config.swipe = {
-  threshold: 100 
-}
+
 new Vue({
   router,
   store,

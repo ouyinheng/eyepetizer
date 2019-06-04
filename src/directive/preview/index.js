@@ -29,3 +29,13 @@ Vue.directive('preview', {
         })
     }
 })
+
+function onTouchStart(e) {
+
+}
+function onTouchMove(e) {
+
+}
+function onTouchEnd(e) {
+
+}

@@ -6,6 +6,7 @@
       </keep-alive>
     </transition>
     <audio :src="url" ref="audio"></audio>
+    <lg-preview></lg-preview>
   </div>
 </template>
 <script>

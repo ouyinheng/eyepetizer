@@ -1,4 +1,4 @@
 import './loading';
-import './preview';
+// import './preview';
 import './ripple';
 import './loading';

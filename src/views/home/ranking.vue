@@ -20,7 +20,9 @@
         </div>
         <h3 class="font-lg mb-2">推荐榜</h3>
         <div class="article-item flex between">
-          <recom-item v-for="(item, index) in rankList" :key="index" :value="item" @row-click="toSingListInfo(item.id)"></recom-item>
+         <div style="width:30%" v-for="(item, index) in rankList" :key="index">
+            <recom-item :value="item" @row-click="toSingListInfo(item.id)"></recom-item>
+         </div>
           <!-- <div v-for="(item, index) in rankList" :key="index" style="width: 30%;">
             <div>
               <img :src="item.coverImgUrl" alt>

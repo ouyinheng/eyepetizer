@@ -1,7 +1,16 @@
 <template>
-  <div class="o-header flex between -center" :style="`top:${top}px;backgroundColor:${color}`">
+  <div
+    class="o-header flex between -center"
+    :style="{
+      top:top+'px',
+      backgroundColor: color
+    }"
+  >
+    <div class="blurimg" :style="{
+      backgroundImage: tp?`url(${img})`:''
+    }"></div>
     <mu-button icon small color="white" @click="back">
-      <span class="iconfont icon-back font-lg" :style="`color: black`"></span>
+      <span class="iconfont icon-back font-lg" :style="`color: ${textColor}`"></span>
     </mu-button>
     <p class="font-md">{{title}}</p>
     <p></p>
@@ -16,10 +25,21 @@ export default {
       default: 0
     },
     color: {
-      default: 'transparent'
+      default: "transparent"
     },
     title: {
-      default: ''
+      default: ""
+    },
+    textColor: {
+      default: "white"
+    },
+    img: {
+      type: String,
+      default: ""
+    },
+    tp: {
+      type: Boolean,
+      default: false
     }
   },
   data() {
@@ -43,12 +63,28 @@ export default {
   top: 0;
   left: 0;
   z-index: 100;
+  overflow: hidden;
+  .blurimg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    bottom: 0;
+    background-size: auto;
+    filter: blur(30px);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    // background-color: rgba(0, 0, 0, .5);
+    z-index: 0;
+  }
+
   padding: {
     top: 30px;
     left: 10px;
     right: 10px;
-  };
+  }
   box-sizing: border-box;
-  transition: all .3s;
+  transition: all 0.3s;
 }
 </style>

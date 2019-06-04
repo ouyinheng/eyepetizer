@@ -1,6 +1,7 @@
 <template>
   <div class="recommendation" v-loading="loading">
     <o-header :top="0"></o-header>
+    <!-- <appbar title="每日推荐" :menu="true"></appbar> -->
     <!-- <header class="header bg-grey" :style="{
       backgroundImage: `url(${img})`
     }"></header>-->

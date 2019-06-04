@@ -43,8 +43,17 @@
                     ></video>
                   </section>
                   <section class="content" v-else>
-                    <div class="flex" v-preview="item.pics.map(src=>src.squareUrl)">
-                      <img class="pics" v-for="(items, indexs) in item.pics" :key="indexs" :src="items.squareUrl">
+                    <div class="flex">
+                      <img
+                        class="pics"
+                        v-for="(img,indexs) in item.pics"
+                        v-preview="img.squareUrl"
+                        :src="img.squareUrl"
+                        :key="indexs"
+                        preview-title-enable="true"
+                        preview-nav-enable="true"
+                      >
+                      <!-- <img class="pics" v-for="(items, indexs) in item.pics" :key="indexs" :src="items.squareUrl"> -->
                       <div class="pics" v-if="item.pics.length%3<=1&&item.pics.length%3>0"></div>
                       <div class="pics" v-if="item.pics.length%3<=2&&item.pics.length%3>0"></div>
                     </div>
@@ -54,7 +63,7 @@
                         <span>{{item.song.name}}</span>
                         <span></span>
                       </div>
-                    </div> -->
+                    </div>-->
                   </section>
                 </div>
               </div>
@@ -209,7 +218,6 @@ export default {
         height: 100px;
         margin-bottom: 5px;
         border-radius: 5px;
-
       }
     }
   }
