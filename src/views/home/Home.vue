@@ -123,6 +123,7 @@ export default {
     }
   },
   created() {
+    this.$toast.top('top');
     this.getBanner().then(res => {
       this.songlist = res.banners;
     });

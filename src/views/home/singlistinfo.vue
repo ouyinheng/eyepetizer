@@ -19,6 +19,7 @@
         </div>
       </div>
     </header>
+    <div class="allPlay">全部播放</div>
     <section class="p-2 section">
       <mu-list textline="three-line">
         <musicitem
@@ -99,15 +100,15 @@ export default {
     document
       .getElementsByClassName("singlistinfo")[0]
       .addEventListener("scroll", e => {
-        let domHeader = document.getElementsByClassName('header')[0];
+        let domHeader = document.getElementsByClassName("header")[0];
         let height = domHeader.clientHeight;
         let top = document.getElementsByClassName("singlistinfo")[0].scrollTop;
-        if(height-top<=80) {
-          this.tp = true
-          this.color = 'gray';
+        if (height - top <= 80) {
+          this.tp = true;
+          this.color = "gray";
         } else {
-          this.tp = false
-          this.color = 'transparent';
+          this.tp = false;
+          this.color = "transparent";
         }
       });
   }
@@ -120,6 +121,7 @@ export default {
   height: 100vh;
   overflow-y: auto;
   background-color: white;
+  position: relative;
   .header {
     width: 100%;
     height: 300px;
@@ -178,6 +180,14 @@ export default {
   }
   .section {
     overflow: auto;
+  }
+  .allPlay {
+    position: sticky;
+    top: 80px;
+    width: 100%;
+    background-color: white;
+    z-index: 100;
+    padding: 10px;
   }
 }
 </style>

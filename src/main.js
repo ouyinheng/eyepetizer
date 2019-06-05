@@ -21,7 +21,9 @@ Vue.use(VueLazyload, {
 Vue.config.productionTip = false
 Vue.use(MuseUI)
 Vue.prototype.axios = axios
-
+import '@/components/toast/index.scss';
+import Toast from '@/components/toast/index.js';
+Vue.use(Toast);
 new Vue({
   router,
   store,

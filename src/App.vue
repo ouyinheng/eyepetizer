@@ -1,9 +1,7 @@
 <template>
   <div id="app">
     <transition :name="transitionName">
-      <keep-alive>
         <router-view class="changeRouter"/>
-      </keep-alive>
     </transition>
     <audio :src="url" ref="audio"></audio>
     <lg-preview></lg-preview>
