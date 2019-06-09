@@ -1,6 +1,6 @@
 <template>
   <div class="singlistinfo" v-loading="loading">
-    <o-header :top="0" :color="color" :img="img" :tp="tp"></o-header>
+    <o-header :top="0" :color="color" :img="img" :tp="tp" :title="title"></o-header>
     <!-- <appbar title="每日推荐" :menu="true"></appbar> -->
     <header class="header bg-grey">
       <div class="blurimg" :style="{
@@ -57,7 +57,8 @@ export default {
       color: "transparent",
       loading: false,
       info: {},
-      tp: false
+      tp: false,
+      title: '歌单'
     };
   },
   computed: {
@@ -106,9 +107,11 @@ export default {
         if (height - top <= 80) {
           this.tp = true;
           this.color = "gray";
+          this.title = this.info.name
         } else {
           this.tp = false;
           this.color = "transparent";
+          this.title = '歌单'
         }
       });
   }

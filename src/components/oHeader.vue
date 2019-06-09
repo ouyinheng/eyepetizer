@@ -12,8 +12,8 @@
     <mu-button icon small color="white" @click="back">
       <span class="iconfont icon-back font-lg" :style="`color: ${textColor}`"></span>
     </mu-button>
-    <p class="font-md">{{title}}</p>
-    <p></p>
+    <p class="font-lg" style="color: white;position:relative;z-index:111;">{{title}}</p>
+    <p style="padding: 0 10px;"></p>
   </div>
 </template>
 
