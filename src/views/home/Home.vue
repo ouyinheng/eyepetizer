@@ -23,40 +23,33 @@
         </div>
       </div>
       <div class="mt-4">
-        <h3 class="h3 font-md" @click="jump('/playlists')">
+        <h3 class="h3 font-md between" @click="jump('/playlists')">
           精选歌单
           <span class="iconfont icon-more"></span>
         </h3>
         <div class="songlist mt-2">
-          <div v-for="(item, index) in getRecommList.slice(0, 9)" :key="index" style="width:30%;">
+          <div v-for="(item, index) in getRecommList.slice(0, 9)" :key="index" style="width:32%;">
             <recom-item :value="item" @row-click="toSingListInfo(item.id)"></recom-item>
           </div>
         </div>
       </div>
-      <!-- <div class="mt-6">
-        <h3 class="h3 font-ld" @click="goDayRecomm">
+      <div class="mt-6">
+        <h3 class="h3 font-md between">
           每日推荐
           <span class="iconfont icon-more"></span>
         </h3>
-        <mu-list textline="three-line">
-          <musicitem
-            v-for="(item, index) in dayRecomm"
-            :key="index"
-            :imgUrl="item.picUrl"
-            :title="item.name"
-            :content="item.copywriter"
-          ></musicitem>
-        </mu-list>
-      </div>-->
+        <div class="mvlist mt-2">
+          <div v-for="(item, index) in mvList" :key="index" style="width:49%;">
+            <recom-item :value="item" :count="false" @row-click="toMcInfo(item.id)"></recom-item>
+          </div>
+        </div>
+      </div>
     </section>
   </div>
 </template>
 
 <script>
-// import { getRankList, getRecomm } from "@/config/recommend.request";
-// import { recommed } from "@/api/qq.request";
 import { mapActions, mapGetters } from "vuex";
-import musicitem from "@/components/music-item.vue";
 import recomitem from "@/components/recom-item.vue";
 
 export default {
@@ -65,13 +58,13 @@ export default {
     ...mapGetters(["getRecommList"])
   },
   components: {
-    musicitem: musicitem,
     "recom-item": recomitem
   },
   data() {
     return {
       songlist: [],
       dayRecomm: [],
+      mvList: [],
       iconlist: [
         {
           title: '推荐',
@@ -79,11 +72,6 @@ export default {
           color: "#FF6686",
           url: '/dayrecomm'
         },
-        // {
-        //   title: "歌手",
-        //   icon: "icon-team",
-        //   color: "#FF6686"
-        // },
         {
           title: "排行",
           icon: "icon-paihangbang",
@@ -106,7 +94,7 @@ export default {
     };
   },
   methods: {
-    ...mapActions(["getBanner", "getRecommend"]),
+    ...mapActions(["getBanner", "getRecommend", "getRecomMv"]),
     goDayRecomm() {
       this.$router.push("/dayrecomm");
     },
@@ -120,10 +108,18 @@ export default {
           id
         }
       })
+    },
+    getMv() {
+      this.getRecomMv().then(res => {
+        this.mvList = res.result
+      })
+    },
+    toMcInfo(id) {
+      this.$router.push('/mvinfo');
     }
   },
   created() {
-    this.$toast.top('top');
+    // this.$toast.top('top');
     this.getBanner().then(res => {
       this.songlist = res.banners;
     });
@@ -131,6 +127,7 @@ export default {
       // this.dayRecomm = res.slice(0, 9);
       // this.dayRecomm = this.getRecommList.slice(0, 9);
     });
+    this.getMv()
   }
 };
 </script>
@@ -169,7 +166,6 @@ export default {
     flex-direction: column;
   }
   .h3 {
-    display: block;
     box-sizing: content-box;
     height: 20px;
     line-height: 20px;
@@ -179,7 +175,7 @@ export default {
   .section {
     width: 100%;
   }
-  .songlist {
+  .songlist, .mvlist {
     width: 100%;
     display: flex;
     justify-content: space-between;

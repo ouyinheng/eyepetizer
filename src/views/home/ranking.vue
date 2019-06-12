@@ -1,6 +1,6 @@
 <template>
   <div class="ranking" v-loading="loading">
-    <o-header :top="0" color="white" title="排行榜"></o-header>
+    <o-header :top="0" textColor="black" title="排行榜"></o-header>
     <!-- <o-loading :loading="loading"></o-loading> -->
     <section class="section">
       <div class="mt-2 article">

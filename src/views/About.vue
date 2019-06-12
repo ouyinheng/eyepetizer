@@ -1,7 +1,7 @@
 <template>
   <div class="about">
     <section class="content">
-      <transition :name="transitionName">
+      <transition >
         <keep-alive>
           <router-view class="Router"></router-view>
         </keep-alive>

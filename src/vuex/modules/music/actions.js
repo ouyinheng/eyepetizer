@@ -18,3 +18,8 @@ export const getMusicDetails = ({ commit },id) => {
     return resp;
   })
 }
+export const getMusicLyric = ({ commit },id) => {
+  return Svc.getMusicLyric(id).then(resp => {
+    return resp;
+  })
+}

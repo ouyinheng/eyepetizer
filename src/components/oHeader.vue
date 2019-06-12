@@ -1,19 +1,19 @@
 <template>
   <div
-    class="o-header flex between -center"
+    class="o-header flex -center"
     :style="{
       top:top+'px',
       backgroundColor: color
     }"
   >
     <div class="blurimg" :style="{
-      backgroundImage: tp?`url(${img})`:''
+      backgroundImage: tp?`url(${img})`:'',
+      opacity: opacity
     }"></div>
     <mu-button icon small color="white" @click="back">
       <span class="iconfont icon-back font-lg" :style="`color: ${textColor}`"></span>
     </mu-button>
-    <p class="font-md">{{title}}</p>
-    <p></p>
+    <p class="font-lg pl-1 pr-1" style="color:white;z-index:10;" :style="`color: ${textColor}`">{{title}}</p>
   </div>
 </template>
 
@@ -40,6 +40,10 @@ export default {
     tp: {
       type: Boolean,
       default: false
+    },
+    opacity: {
+      type: Number,
+      default: 0
     }
   },
   data() {
@@ -81,7 +85,6 @@ export default {
 
   padding: {
     top: 30px;
-    left: 10px;
     right: 10px;
   }
   box-sizing: border-box;

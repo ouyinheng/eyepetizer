@@ -152,7 +152,6 @@ export default {
   },
   mounted() {
     this.width =  document.body.clientWidth;
-    console.log(this.width)
   }
 };
 </script>

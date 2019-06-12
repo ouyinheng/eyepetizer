@@ -13,6 +13,7 @@ import station from '@/views/home/station.vue';
 import music from '@/views/seconds/music.vue';
 import singlistinfo from '@/views/home/singlistinfo.vue';
 import playlists from '@/views/home/playlists.vue';
+import mvinfo from '@/views/home/mvinfo.vue';
 Vue.use(Router)
 
 const router = new Router({
@@ -127,6 +128,14 @@ const router = new Router({
       weight: 11
     },
     component: playlists
+  }, {
+    path: '/mvinfo',
+    name: 'mvinfo',
+    meta: {
+      name: 'slide-left',
+      weight: 12
+    },
+    component: mvinfo
   }]
 })
 

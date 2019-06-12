@@ -1,8 +1,8 @@
 <template>
   <div class="songlist-item" @click="rowClick">
     <img class="mb-2" v-lazy="value.picUrl||value.coverImgUrl" :alt="value.name">
-    <span class="font-sm color-p1 intro">{{value.name}}</span>
-    <div class="songlist-intro pl-2 pt-1" style="color:#ffffff">
+    <span class="font-sm color-p3 intro">{{value.name}}</span>
+    <div class="songlist-intro pl-2 pt-1" style="color:#ffffff" v-if="count">
       <span class="iconfont icon-icon-"></span>
       <span>{{parseInt((value.playcount||value.playCount)/10000)}}万</span>
     </div>
@@ -12,7 +12,13 @@
 <script>
 export default {
   name: "songlist-item",
-  props: ["value"],
+  props: {
+    value: {},
+    count: {
+      type: Boolean,
+      default: true
+    }
+  },
   methods: {
     rowClick() {
       this.$emit('row-click')
@@ -42,7 +48,7 @@ export default {
   }
   .intro {
     display: block;
-    height: 4rem;
+    line-height: 1.3rem;
     overflow: hidden;
   }
 }

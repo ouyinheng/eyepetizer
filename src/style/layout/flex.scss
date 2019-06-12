@@ -12,6 +12,7 @@
   @include flex(column);
 }
 .between {
+  display: flex;
   justify-content: space-between;
 }
 .around {

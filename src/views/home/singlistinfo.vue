@@ -1,6 +1,6 @@
 <template>
   <div class="singlistinfo" v-loading="loading">
-    <o-header :top="0" :color="color" :img="img" :tp="tp"></o-header>
+    <o-header :top="0" :color="color" :img="img" :tp="tp" :opacity="opacity" :title="title"></o-header>
     <!-- <appbar title="每日推荐" :menu="true"></appbar> -->
     <header class="header bg-grey">
       <div class="blurimg" :style="{
@@ -28,7 +28,7 @@
           :imgUrl="item.al.picUrl"
           :title="item.name"
           :content="item.al.name+'---'+(item.alia[0]||'')"
-          @click-row="toMusic(item.id)"
+          @click-row="toMusic(item.id, index)"
         ></musicitem>
       </mu-list>
     </section>
@@ -41,6 +41,7 @@ import Header from "@/components/oHeader.vue";
 import musicitem from "@/components/music-item.vue";
 import Loading from "@/components/Loading";
 import appbar from "@/components/appbar";
+import { promises } from 'fs';
 
 export default {
   name: "singlistinfo",
@@ -57,7 +58,9 @@ export default {
       color: "transparent",
       loading: false,
       info: {},
-      tp: false
+      tp: false,
+      opacity: 0,
+      title: '歌单'
     };
   },
   computed: {
@@ -76,8 +79,8 @@ export default {
       if (index !== -1) {
         this.setNowPlay(index);
       } else {
-        this.setPlayList(row);
-        this.setNowPlay(this.getPlayList.length - 1);
+          this.setNowPlay(0);
+          this.setPlayList(this.musicList)
       }
       this.$router.push("/music");
     },
@@ -106,9 +109,14 @@ export default {
         if (height - top <= 80) {
           this.tp = true;
           this.color = "gray";
+          this.opacity = 1;
+          this.title = this.info.name
         } else {
-          this.tp = false;
+          this.tp = true;
+          this.opacity = Number((top/height).toString().substr(0,4));
+          // this.opacity = this.opacity < 0.5 ? 1 : 1; 
           this.color = "transparent";
+          this.title = '歌单';
         }
       });
   }

@@ -19,3 +19,5 @@ export const getTopListDetail = () => axios.get(`${host}/toplist/detail`)
 export const getSongListClassify = () => axios.get(`${host}/playlist/hot`)
 // 
 export const getSongListInfo = (params) => axios.get(`${host}/top/playlist/highquality?before=${params.before}&limit=${params.limit}&cat=${params.cat}`)
+// 推荐MV
+export const getRecomMv = () => axios.get(`${host}/personalized/mv`)

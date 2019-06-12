@@ -1,6 +1,6 @@
 <template>
   <div class="playlists">
-    <o-header :top="0" title="歌单广场"></o-header>
+    <o-header :top="0" title="歌单广场" textColor="black"></o-header>
     <mu-container style="margin-top: 80px;width: 100%;">
       <mu-tabs
         :value.sync="active"

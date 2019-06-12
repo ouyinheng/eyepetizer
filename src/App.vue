@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <transition :name="transitionName">
-        <router-view class="changeRouter"/>
+      <router-view class="changeRouter"/>
     </transition>
     <audio :src="url" ref="audio"></audio>
     <lg-preview></lg-preview>
@@ -30,7 +30,7 @@ export default {
     },
     getNowPlay() {
       this.url = `https://music.163.com/song/media/outer/url?id=${
-        this.getPlayList[this.getNowPlay]
+        this.getPlayList[this.getNowPlay].id
       }.mp3 `;
       this.$nextTick(() => {
         this.$refs.audio.play();
@@ -46,12 +46,10 @@ export default {
     ...mapActions([])
   },
   mounted() {
-    this.$refs.audio.addEventListener(
-      "ended",
-      function() {
+    this.$refs.audio.addEventListener("ended", () => {
         const length = this.getPlayList.length - 1;
-        let nowplay = this.getNowPlay;
-        if (this.getNowPlay >= length) {
+        let nowplay = this.getNowPlay+1;
+        if (nowplay >= length) {
           nowplay = 0;
         }
         this.setNowPlay(nowplay);
@@ -62,7 +60,7 @@ export default {
   created() {
     if (this.getNowPlay !== -1)
       this.url = `https://music.163.com/song/media/outer/url?id=${
-        this.getPlayList[this.getNowPlay]
+        this.getPlayList[this.getNowPlay].id
       }.mp3 `;
   }
 };

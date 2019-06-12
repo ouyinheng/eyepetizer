@@ -23,7 +23,6 @@ Vue.directive('loading', {
     },
     update(el, binding, vnode) {
         const bool = binding.value;
-        console.log(bool)
         if (bool) {
             const div = document.createElement('div');
             div.setAttribute('class', 'loading')

@@ -37,3 +37,9 @@ export const getSongListInfo = ({commit}, params) => {
       return res;
   })
 }
+// 推荐MV
+export const getRecomMv = ({commit}) => {
+  return Svc.getRecomMv().then( res => {
+      return res;
+  })
+}
