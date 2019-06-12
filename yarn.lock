@@ -6567,6 +6567,7 @@ vue-loader@^15.7.0:
 vue-picture-preview@^1.2.1:
   version "1.2.1"
   resolved "https://registry.npm.taobao.org/vue-picture-preview/download/vue-picture-preview-1.2.1.tgz#6b34ff2dae2d2493a37458e2c6d8d84ade2f1f00"
+  integrity sha1-azT/La4tJJOjdFjixtjYSt4vHwA=
 
 vue-router@^3.0.3:
   version "3.0.6"

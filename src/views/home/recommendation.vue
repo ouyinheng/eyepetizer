@@ -70,6 +70,7 @@ export default {
     this.getDayRecom().then(res => {
       this.loading = false;
       this.musicList = res;
+      this.info = res;
       this.img = res[0].album.blurPicUrl;
       this.info = res[0]
     });
@@ -92,6 +93,24 @@ export default {
         this.title = "歌单";
       }
     });
+  },
+  mounted() {
+    document
+      .getElementsByClassName("recommendation")[0]
+      .addEventListener("scroll", e => {
+        let domHeader = document.getElementsByClassName("header")[0];
+        let height = domHeader.clientHeight;
+        let top = document.getElementsByClassName("recommendation")[0].scrollTop;
+        if (height - top <= 80) {
+          this.tp = true;
+          this.color = "gray";
+          this.title = '每日推荐'
+        } else {
+          this.tp = false;
+          this.color = "transparent";
+          this.title = ''
+        }
+      });
   }
 };
 </script>

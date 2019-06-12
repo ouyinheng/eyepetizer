@@ -7,6 +7,14 @@
         </keep-alive>
       </transition>
     </section>
+    <!-- <footer class="footer">
+      <mu-bottom-nav style="height:60px;">
+        <mu-bottom-nav-item title="Recents" icon="restore"></mu-bottom-nav-item>
+        <mu-bottom-nav-item title="Favorites" icon="favorite"></mu-bottom-nav-item>
+        <mu-bottom-nav-item title="Nearby" icon="location_on"></mu-bottom-nav-item>
+      </mu-bottom-nav>
+    </footer> -->
+     <!-- <mu-button flat>Normal</mu-button> -->
     <footer class="footer">
       <div
         v-for="(item, index) in urllist"
@@ -24,7 +32,7 @@
           v-if="index!==2"
         ></div>
         <span v-if="index!==2">{{item.title}}</span>
-        <img v-if="index==2" :src="item.img" alt="">
+        <img v-if="index==2" :src="item.img" alt>
       </div>
     </footer>
   </div>
@@ -34,13 +42,11 @@
 // @ is an alias to /src
 import { mapActions, mapGetters } from "vuex";
 
-
 export default {
   name: "About",
-  components: {
-  },
-   computed: {
-    ...mapGetters(['getUserInfo'])
+  components: {},
+  computed: {
+    ...mapGetters(["getUserInfo"])
   },
   data() {
     return {
@@ -58,9 +64,9 @@ export default {
           fill: "icon-yinle2"
         },
         {
-          url: '/music',
-          title: '音乐',
-          img: 'logo.png'
+          url: "/music",
+          title: "音乐",
+          img: "logo.png"
         },
         {
           url: "/circle",
@@ -89,7 +95,7 @@ export default {
     }
   },
   methods: {
-     ...mapActions(["getLoginStatus", "getUserSingList"]),
+    ...mapActions(["getLoginStatus", "getUserSingList"]),
     changeUrl(url, index) {
       if (this.$route.path === url) return;
       this.$router.push(url);
@@ -103,10 +109,9 @@ export default {
       }
     });
     this.getLoginStatus().then(res => {
-      this.getUserSingList(this.getUserInfo.userId).then(res=>{
+      this.getUserSingList(this.getUserInfo.userId).then(res => {
         // console.log(res)
-      })
-
+      });
     });
   }
 };
@@ -126,18 +131,21 @@ export default {
   }
   .footer {
     width: 100%;
+    height: 60px;
     position: absolute;
     bottom: 0;
     left: 0;
     display: flex;
+    align-items: center;
     background-color: white;
-    padding: 8px 0;
+    // padding: 8px 0;
+    z-index: 10;
     img {
       display: block;
       box-sizing: content-box;
       background-color: transparent;
-      width: 40px;
-      height: 40px;
+      width: 50px;
+      height: 50px;
       border-radius: 50%;
       position: absolute;
       top: -15px;
@@ -174,7 +182,7 @@ export default {
 .Router {
   position: absolute;
   width: 100%;
-  transition: all .3s ease;
+  transition: all 0.3s ease;
   top: 0px;
 }
 .slide-left-enter,
@@ -203,9 +211,10 @@ export default {
 }
 @keyframes whirl {
   from {
-    transform: rotate(0deg)
-  } to {
-    transform: rotate(360deg)
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }
 </style>
