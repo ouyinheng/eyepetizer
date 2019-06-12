@@ -54,12 +54,12 @@ export default {
   methods: {
     ...mapActions(["getDayRecom"]),
     ...mapMutations(["setPlayList", "setNowPlay"]),
-    toMusic(row) {
+    toMusic(row, indexs) {
       const index = this.getPlayList.indexOf(row);
       if (index !== -1) {
         this.setNowPlay(index);
       } else {
-        this.setNowPlay(0);
+        this.setNowPlay(indexs);
         this.setPlayList(this.musicList);
       }
       this.$router.push("/music");

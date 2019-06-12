@@ -24,14 +24,20 @@
       v-if="getNowPlay!==-1"
       style="display:flex;flex-direction:column;justify-content:space-around;"
     >
-      <div class="albumImage" @click="lyricshow=!lyricshow" v-if="lyricshow">
-        <img :src="info.songs[0].al.picUrl" :class="{play: getPlay}" alt>
-      </div>
-      <div class="albumLyric" v-else @click="lyricshow=!lyricshow">
-        <p>
-          <div v-for="(item, index) of lyric.lrc.lyric" :key="index" style="text-align:center;padding: 5px 0;">{{item}}</div>
-        </p>
-      </div>
+      <transition name="jackInTheBox" mode="out-in">
+        <div class="albumImage" key="1" @click="lyricshow=!lyricshow" v-if="lyricshow">
+          <img :src="info.songs[0].al.picUrl" :class="{play: getPlay}" alt>
+        </div>
+        <div class="albumLyric" key="2" v-else @click="lyricshow=!lyricshow">
+          <div>
+            <p
+              v-for="(item, index) of lyric.lrc.lyric"
+              :key="index"
+              style="text-align:center;padding: 5px 0;"
+            >{{item}}</p>
+          </div>
+        </div>
+      </transition>
       <div class="flex-column around">
         <div>
           <mu-slider class="demo-slider" v-model="slide" color="#ff4545"></mu-slider>
@@ -188,14 +194,14 @@ export default {
       this.getMusicLyric(this.getPlayList[this.getNowPlay].id).then(res => {
         console.log(res);
         this.lyric = res;
-        res.lrc.lyric = this.parseLyric(res.lrc.lyric)
+        res.lrc.lyric = this.parseLyric(res.lrc.lyric);
       });
     }
   },
   created() {
     if (this.getNowPlay == -1) return;
     this.getMusicInfo();
-    this.getGc()
+    this.getGc();
   }
 };
 </script>
