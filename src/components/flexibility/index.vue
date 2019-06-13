@@ -2,7 +2,12 @@
   <div class="flexibility">
     <div @touchmove.prevent>
       <div id="header-view-template">
-        <div class="draggable-header-view" @touchstart="startDrag" @touchmove="onDrag" @touchend="stopDrag">
+        <div
+          class="draggable-header-view"
+          @touchstart="startDrag"
+          @touchmove="onDrag"
+          @touchend="stopDrag"
+        >
           <svg class="bg" width="1000" height="560">
             <path :d="headerPath" fill="#3F51B5"></path>
           </svg>
@@ -10,82 +15,7 @@
             <slot name="header"></slot>
           </div>
           <div class="content" :style="contentPosition">
-            <p>就分手</p>
-            <p>就分手</p>
-            <p>就分手</p>
-            <p>就分手</p>
-            <p>就分手</p>
-            <p>就分手</p>
-            <p>就分手</p>
-            <p>就分手</p>
-            <p>就分手</p>
-            <p>就分手</p>
-            <p>就分手</p>
-            <p>就分手</p>
-            <p>就分手</p>
-            <p>就分手</p>
-            <p>就分手</p>
-            <p>就分手</p>
-            <p>就分手</p>
-            <p>就分手</p>
-            <p>就分手</p>
-            <p>就分手</p>
-            <p>就分手</p>
-            <p>就分手</p>
-            <p>就分手</p>
-            <p>就分手</p>
-            <p>就分手</p>
-            <p>就分手</p>
-            <p>就分手</p>
-            <p>就分手</p>
-            <p>就分手</p>
-            <p>就分手</p>
-            <p>就分手</p>
-            <p>就分手</p>
-            <p>就分手</p>
-            <p>就分手</p>
-            <p>就分手</p>
-            <p>就分手</p>
-            <p>就分手</p>
-            <p>就分手</p>
-            <p>就分手</p>
-            <p>就分手</p>
-            <p>就分手</p>
-            <p>就分手</p>
-            <p>就分手</p>
-            <p>就分手</p>
-            <p>就分手</p>
-            <p>就分手</p>
-            <p>就分手</p>
-            <p>就分手</p>
-            <p>就分手</p>
-            <p>就分手</p>
-            <p>就分手</p>
-            <p>就分手</p>
-            <p>就分手</p>
-            <p>就分手</p>
-            <p>就分手</p>
-            <p>就分手</p>
-            <p>就分手</p>
-            <p>就分手</p>
-            <p>就分手</p>
-            <p>就分手</p>
-            <p>就分手</p>
-            <p>就分手</p>
-            <p>就分手</p>
-            <p>就分手</p>
-            <p>就分手</p>
-            <p>就分手</p>
-            <p>就分手</p>
-            <p>就分手</p>
-            <p>就分手</p>
-            <p>就分手</p>
-            <p>就分手</p>
-            <p>就分手</p>
-            <p>就分手</p>
-            <p>就分手</p>
-            <p>就分手</p>
-            <p>就分手</p>
+            <p v-for="item in 100" :key="item">就分手</p>
             <slot name="content"></slot>
           </div>
         </div>
@@ -106,7 +36,14 @@ export default {
   },
   computed: {
     headerPath: function() {
-      return `M0,0 L${this.width},0 ${this.width},120` + "Q" + this.c.x + "," + this.c.y + " 0,120";
+      return (
+        `M0,0 L${this.width},0 ${this.width},120` +
+        "Q" +
+        this.c.x +
+        "," +
+        this.c.y +
+        " 0,120"
+      );
     },
     contentPosition: function() {
       const dy = this.c.y - 120;
@@ -129,7 +66,7 @@ export default {
         this.c.x = 120 + (e.pageX - this.start.x);
         const dy = e.pageY - this.start.y;
         const dampen = dy > 0 ? 1.5 : 4;
-        if(this.c.y<=120+ dy / dampen)this.c.y = 120 + dy / dampen;
+        if (this.c.y <= 120 + dy / dampen) this.c.y = 120 + dy / dampen;
       }
     },
     stopDrag: function() {
@@ -151,7 +88,7 @@ export default {
     }
   },
   mounted() {
-    this.width =  document.body.clientWidth;
+    this.width = document.body.clientWidth;
   }
 };
 </script>
@@ -159,7 +96,9 @@ export default {
 <style lang="scss" scoped>
 .flexibility {
   width: 100%;
-  overflow: auto;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
   h1 {
     font-weight: 300;
     font-size: 1.5em;

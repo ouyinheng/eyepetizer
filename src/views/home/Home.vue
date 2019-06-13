@@ -13,9 +13,20 @@
         <img :src="item.pic">
       </mu-carousel-item>
     </mu-carousel>
+    <!-- swiper -->
+    <!-- <swiper style="border-radius:10px;">
+      <swiper-slide v-for="(item, index) in songlist" :key="index">
+        <img :src="item.pic">
+      </swiper-slide>
+    </swiper> -->
     <section class="section">
       <div class="flex" style="margin: 10px 0;">
-        <div class="flex -center" v-for="(item, index) in iconlist" :key="index" @click="jump(item.url)">
+        <div
+          class="flex -center"
+          v-for="(item, index) in iconlist"
+          :key="index"
+          @click="jump(item.url)"
+        >
           <mu-avatar :color="item.color">
             <span :class="['iconfont', item.icon]"></span>
           </mu-avatar>
@@ -67,28 +78,28 @@ export default {
       mvList: [],
       iconlist: [
         {
-          title: '推荐',
-          icon: 'icon-meirituijian',
+          title: "推荐",
+          icon: "icon-meirituijian",
           color: "#FF6686",
-          url: '/dayrecomm'
+          url: "/dayrecomm"
         },
         {
           title: "排行",
           icon: "icon-paihangbang",
           color: "#51B7FF",
-          url: '/ranking'
+          url: "/ranking"
         },
         {
           title: "歌单",
           icon: "icon-gedan",
           color: "#BC78FF",
-          url: '/playlists'
+          url: "/playlists"
         },
         {
           title: "电台",
           icon: "icon-diantai",
           color: "#FFD863",
-          url: '/station'
+          url: "/station"
         }
       ]
     };
@@ -99,23 +110,23 @@ export default {
       this.$router.push("/dayrecomm");
     },
     jump(url) {
-      this.$router.push(url)
+      this.$router.push(url);
     },
     toSingListInfo(id) {
       this.$router.push({
-        path: '/singlistinfo',
+        path: "/singlistinfo",
         query: {
           id
         }
-      })
+      });
     },
     getMv() {
       this.getRecomMv().then(res => {
-        this.mvList = res.result
-      })
+        this.mvList = res.result;
+      });
     },
     toMcInfo(id) {
-      this.$router.push('/mvinfo');
+      this.$router.push("/mvinfo");
     }
   },
   created() {
@@ -127,7 +138,7 @@ export default {
       // this.dayRecomm = res.slice(0, 9);
       // this.dayRecomm = this.getRecommList.slice(0, 9);
     });
-    this.getMv()
+    this.getMv();
   }
 };
 </script>
@@ -151,7 +162,7 @@ export default {
   }
   .banner {
     width: 100%;
-    height: 120px;
+    height: 150px;
     border-radius: 10px;
     img {
       width: 100%;
@@ -175,7 +186,8 @@ export default {
   .section {
     width: 100%;
   }
-  .songlist, .mvlist {
+  .songlist,
+  .mvlist {
     width: 100%;
     display: flex;
     justify-content: space-between;

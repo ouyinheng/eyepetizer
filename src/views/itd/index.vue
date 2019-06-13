@@ -3,7 +3,7 @@
     <!-- <o-video></o-video> -->
     <!-- <music-item></music-item> -->
     <!-- <testmusic></testmusic> -->
-    <!-- <flexibilitu></flexibilitu> -->
+    <flexibilitu></flexibilitu>
     <!-- <Loading :loading="true" :kind="2"></Loading> -->
     <!-- <animates></animates> -->
    

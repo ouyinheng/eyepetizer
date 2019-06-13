@@ -8,8 +8,30 @@
         <span class="iconfont icon-tongzhi"></span>
       </div>
     </div>
-    <mu-list toggle-nested>
-      <div v-riplles="true" nested style="padding: 10px 0;display:flex;align-items:center;">
+    <md-list>
+      <md-list-item @click>
+        <span class="iconfont icon-gengduo_tinggemianliuliang_ icon mr-2"></span>
+        <span class="md-list-item-text font-lg">最近播放</span>
+        <span class="iconfont icon-more icon"></span>
+      </md-list-item>
+      <md-list-item @click>
+        <span class="iconfont icon-xia icon mr-2"></span>
+        <span class="md-list-item-text font-lg">我的下载</span>
+        <span class="iconfont icon-more icon"></span>
+      </md-list-item>
+      <md-list-item @click>
+        <span class="iconfont icon-diantai2 icon mr-2"></span>
+        <span class="md-list-item-text font-lg">我的电台</span>
+        <span class="iconfont icon-more icon"></span>
+      </md-list-item>
+      <md-list-item @click>
+        <span class="iconfont icon-xihuan1 icon mr-2"></span>
+        <span class="md-list-item-text font-lg">我的收藏</span>
+        <span class="iconfont icon-more icon"></span>
+      </md-list-item>
+    </md-list>
+    <!-- <mu-list toggle-nested>
+      <div nested style="padding: 10px 0;display:flex;align-items:center;">
         <mu-list-item-title class="font-lg">
           <span class="iconfont icon-gengduo_tinggemianliuliang_ icon mr-2"></span>最近播放
         </mu-list-item-title>
@@ -17,7 +39,7 @@
           <span class="iconfont icon-more icon font-lg"></span>
         </mu-list-item-action>
       </div>
-      <div v-riplles="true" nested style="padding: 10px 0;display:flex;align-items:center;">
+      <div nested style="padding: 10px 0;display:flex;align-items:center;">
         <mu-list-item-title class="font-lg">
           <span class="iconfont icon-xia icon mr-2"></span>我的下载
         </mu-list-item-title>
@@ -25,7 +47,7 @@
           <span class="iconfont icon-more icon font-lg"></span>
         </mu-list-item-action>
       </div>
-      <div v-riplles="true" nested style="padding: 10px 0;display:flex;align-items:center;">
+      <div nested style="padding: 10px 0;display:flex;align-items:center;">
         <mu-list-item-title class="font-lg">
           <span class="iconfont icon-diantai2 icon mr-2"></span>我的电台
         </mu-list-item-title>
@@ -33,7 +55,7 @@
           <span class="iconfont icon-more icon font-lg"></span>
         </mu-list-item-action>
       </div>
-      <div v-riplles="true" nested style="padding: 10px 0;display:flex;align-items:center;">
+      <div nested style="padding: 10px 0;display:flex;align-items:center;">
         <mu-list-item-title class="font-lg">
           <span class="iconfont icon-xihuan1 icon mr-2"></span>我的收藏
         </mu-list-item-title>
@@ -41,7 +63,7 @@
           <span class="iconfont icon-more icon font-lg"></span>
         </mu-list-item-action>
       </div>
-    </mu-list>
+    </mu-list> -->
     <!-- 创建的歌单 -->
     <mu-list toggle-nested>
       <div style="display:flex;align-items:center;padding: 5px 0;">
@@ -121,13 +143,13 @@ export default {
       open: "send",
       open1: "send",
       setUpuserSingList: [],
-      id: ''
+      id: ""
     };
   },
   methods: {
     ...mapActions(["getUserSingList"]),
     toMusicInfo(id) {
-      this.$router.push(`/singlistinfo?id=${id}`)
+      this.$router.push(`/singlistinfo?id=${id}`);
     }
   },
   created() {

@@ -1,8 +1,11 @@
 <template>
   <div id="app">
-    <transition :name="transitionName">
-      <router-view class="changeRouter"/>
-    </transition>
+    <keep-alive>
+      <transition :name="transitionName">
+        <router-view class="changeRouter"/>
+      </transition>
+    </keep-alive>
+
     <audio :src="url" ref="audio"></audio>
     <lg-preview></lg-preview>
   </div>
@@ -46,9 +49,11 @@ export default {
     ...mapActions([])
   },
   mounted() {
-    this.$refs.audio.addEventListener("ended", () => {
+    this.$refs.audio.addEventListener(
+      "ended",
+      () => {
         const length = this.getPlayList.length - 1;
-        let nowplay = this.getNowPlay+1;
+        let nowplay = this.getNowPlay + 1;
         if (nowplay >= length) {
           nowplay = 0;
         }

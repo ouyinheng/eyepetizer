@@ -1333,7 +1333,7 @@ body-parser@1.19.0:
 
 body-scroll-lock@^2.6.1:
   version "2.6.1"
-  resolved "https://registry.npm.taobao.org/body-scroll-lock/download/body-scroll-lock-2.6.1.tgz#3782ff37404886faaee366968ceee40c3964d8f2"
+  resolved "https://registry.yarnpkg.com/body-scroll-lock/-/body-scroll-lock-2.6.1.tgz#3782ff37404886faaee366968ceee40c3964d8f2"
 
 bonjour@^3.5.0:
   version "3.5.0"
@@ -2198,7 +2198,7 @@ date-now@^0.1.4:
 
 dayjs@^1.8.2:
   version "1.8.14"
-  resolved "https://registry.npm.taobao.org/dayjs/download/dayjs-1.8.14.tgz#43e4f62830c2c3342c3fcd25934dc9162dbe6f38"
+  resolved "https://registry.yarnpkg.com/dayjs/-/dayjs-1.8.14.tgz#43e4f62830c2c3342c3fcd25934dc9162dbe6f38"
 
 de-indent@^1.0.2:
   version "1.0.2"
@@ -2366,6 +2366,12 @@ dom-serializer@0:
   dependencies:
     domelementtype "^1.3.0"
     entities "^1.1.1"
+
+dom7@^2.1.3:
+  version "2.1.3"
+  resolved "https://registry.yarnpkg.com/dom7/-/dom7-2.1.3.tgz#a736f9c3bfbc4ca039a81cd095f97d1d7f3de19c"
+  dependencies:
+    ssr-window "^1.0.1"
 
 domain-browser@^1.1.1:
   version "1.2.0"
@@ -3772,7 +3778,7 @@ jsprim@^1.2.2:
 
 keycode@^2.1.9:
   version "2.2.0"
-  resolved "https://registry.npm.taobao.org/keycode/download/keycode-2.2.0.tgz#3d0af56dc7b8b8e5cba8d0a97f107204eec22b04"
+  resolved "https://registry.yarnpkg.com/keycode/-/keycode-2.2.0.tgz#3d0af56dc7b8b8e5cba8d0a97f107204eec22b04"
 
 killable@^1.0.1:
   version "1.0.1"
@@ -4218,7 +4224,7 @@ muse-ui-message@^0.2.1:
 
 muse-ui@^3.0.2:
   version "3.0.2"
-  resolved "https://registry.npm.taobao.org/muse-ui/download/muse-ui-3.0.2.tgz#f292e8a063d625d35b1dce1b1504bc0cccd78e65"
+  resolved "https://registry.yarnpkg.com/muse-ui/-/muse-ui-3.0.2.tgz#f292e8a063d625d35b1dce1b1504bc0cccd78e65"
   dependencies:
     body-scroll-lock "^2.6.1"
     dayjs "^1.8.2"
@@ -4434,7 +4440,7 @@ normalize-url@^3.0.0:
 
 normalize-wheel@^1.0.1:
   version "1.0.1"
-  resolved "https://registry.npm.taobao.org/normalize-wheel/download/normalize-wheel-1.0.1.tgz#aec886affdb045070d856447df62ecf86146ec45"
+  resolved "https://registry.yarnpkg.com/normalize-wheel/-/normalize-wheel-1.0.1.tgz#aec886affdb045070d856447df62ecf86146ec45"
 
 npm-bundled@^1.0.1:
   version "1.0.6"
@@ -5527,7 +5533,7 @@ reselect@^3.0.1:
 
 resize-observer-polyfill@^1.5.0:
   version "1.5.1"
-  resolved "https://registry.npm.taobao.org/resize-observer-polyfill/download/resize-observer-polyfill-1.5.1.tgz#0e9020dd3d21024458d4ebd27e23e40269810464"
+  resolved "https://registry.yarnpkg.com/resize-observer-polyfill/-/resize-observer-polyfill-1.5.1.tgz#0e9020dd3d21024458d4ebd27e23e40269810464"
 
 resolve-cwd@^2.0.0:
   version "2.0.0"
@@ -5955,6 +5961,10 @@ sshpk@^1.7.0:
     safer-buffer "^2.0.2"
     tweetnacl "~0.14.0"
 
+ssr-window@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/ssr-window/-/ssr-window-1.0.1.tgz#30752a6a4666e7767f0b7e6aa6fc2fdbd0d9b369"
+
 ssri@^5.2.4:
   version "5.3.0"
   resolved "https://registry.npm.taobao.org/ssri/download/ssri-5.3.0.tgz#ba3872c9c6d33a0704a7d71ff045e5ec48999d06"
@@ -6167,6 +6177,13 @@ svgo@^1.0.0:
     stable "^0.1.8"
     unquote "~1.1.1"
     util.promisify "~1.0.0"
+
+swiper@^4.0.7:
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/swiper/-/swiper-4.5.0.tgz#4d870bec4f5abe2fb259325849dd2641c9243c0d"
+  dependencies:
+    dom7 "^2.1.3"
+    ssr-window "^1.0.1"
 
 tapable@^1.0.0, tapable@^1.1.0:
   version "1.1.3"
@@ -6546,6 +6563,13 @@ vm-browserify@0.0.4:
   dependencies:
     indexof "0.0.1"
 
+vue-awesome-swiper@^3.1.3:
+  version "3.1.3"
+  resolved "https://registry.yarnpkg.com/vue-awesome-swiper/-/vue-awesome-swiper-3.1.3.tgz#05500b501ffb3fec9bf7eb9985bcf4ae8360ed9e"
+  dependencies:
+    object-assign "^4.1.1"
+    swiper "^4.0.7"
+
 vue-hot-reload-api@^2.3.0:
   version "2.3.3"
   resolved "https://registry.npm.taobao.org/vue-hot-reload-api/download/vue-hot-reload-api-2.3.3.tgz#2756f46cb3258054c5f4723de8ae7e87302a1ccf"
@@ -6564,10 +6588,13 @@ vue-loader@^15.7.0:
     vue-hot-reload-api "^2.3.0"
     vue-style-loader "^4.1.0"
 
+vue-material@^1.0.0-beta-11:
+  version "1.0.0-beta-11"
+  resolved "https://registry.yarnpkg.com/vue-material/-/vue-material-1.0.0-beta-11.tgz#11baf0cdb22a35d35859c619099d6c3cb3cc2cc3"
+
 vue-picture-preview@^1.2.1:
   version "1.2.1"
   resolved "https://registry.npm.taobao.org/vue-picture-preview/download/vue-picture-preview-1.2.1.tgz#6b34ff2dae2d2493a37458e2c6d8d84ade2f1f00"
-  integrity sha1-azT/La4tJJOjdFjixtjYSt4vHwA=
 
 vue-router@^3.0.3:
   version "3.0.6"

@@ -1,7 +1,6 @@
 <template>
   <div class="ranking" v-loading="loading">
-    <o-header :top="0" textColor="black" title="排行榜"></o-header>
-    <!-- <o-loading :loading="loading"></o-loading> -->
+    <o-header :top="0" color="white" textColor="black" title="排行榜"></o-header>
     <section class="section">
       <div class="mt-2 article">
         <h3 class="font-lg mb-2">官方榜</h3>
@@ -23,12 +22,6 @@
          <div style="width:30%" v-for="(item, index) in rankList" :key="index">
             <recom-item :value="item" @row-click="toSingListInfo(item.id)"></recom-item>
          </div>
-          <!-- <div v-for="(item, index) in rankList" :key="index" style="width: 30%;">
-            <div>
-              <img :src="item.coverImgUrl" alt>
-              <p style="width: 100%;">{{item.name}}</p>
-            </div>
-          </div> -->
         </div>
       </div>
     </section>
