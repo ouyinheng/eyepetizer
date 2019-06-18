@@ -1,5 +1,5 @@
 <template>
-  <div class="singlistinfo" v-loading="loading">
+  <div class="singlistinfo">
     <o-header :top="0" :color="color" :img="img" :tp="tp" :opacity="opacity" :title="title"></o-header>
     <!-- <appbar title="每日推荐" :menu="true"></appbar> -->
     <header class="header bg-grey">

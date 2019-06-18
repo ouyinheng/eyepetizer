@@ -14,6 +14,7 @@ import music from '@/views/seconds/music.vue';
 import singlistinfo from '@/views/home/singlistinfo.vue';
 import playlists from '@/views/home/playlists.vue';
 import mvinfo from '@/views/home/mvinfo.vue';
+import search from '@/views/home/search.vue';
 Vue.use(Router)
 
 const router = new Router({
@@ -136,6 +137,14 @@ const router = new Router({
       weight: 12
     },
     component: mvinfo
+  }, {
+    path: '/search',
+    name: 'search',
+    meta: {
+      name: 'slide-left',
+      weight: 12
+    },
+    component: search
   }]
 })
 

@@ -1,5 +1,5 @@
 <template>
-  <div class="mine" v-loading="false">
+  <div class="mine">
     <header class="header pt-7">
       <div class="mine-info" @click="toUserInfo">
         <img :src="getUserInfo.avatarUrl" alt>

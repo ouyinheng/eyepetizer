@@ -3,7 +3,9 @@
     <div class="header-top">
       <h3 class="font-lg">发现音乐</h3>
       <div class="font-lg">
-        <span class="iconfont icon-sousuo"></span>
+        <span @click="toSearch()">
+          <md-icon class="md-primary">search</md-icon>
+        </span>
         <span class="iconfont icon-diantai1 ml-4 mr-4"></span>
         <span class="iconfont icon-tongzhi"></span>
       </div>
@@ -18,7 +20,7 @@
       <swiper-slide v-for="(item, index) in songlist" :key="index">
         <img :src="item.pic">
       </swiper-slide>
-    </swiper> -->
+    </swiper>-->
     <section class="section">
       <div class="flex" style="margin: 10px 0;">
         <div
@@ -127,6 +129,9 @@ export default {
     },
     toMcInfo(id) {
       this.$router.push("/mvinfo");
+    },
+    toSearch() {
+      this.$router.push("/search");
     }
   },
   created() {
