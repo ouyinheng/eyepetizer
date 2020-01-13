@@ -39,6 +39,8 @@ https://daneden.github.io/animate.css/?
 
 [link](https://www.ui.cn/detail/300253.html?tdsourcetag=s_pcqq_aiomsg)
 
+<a gref="https://www.ui.cn/detail/300253.html?tdsourcetag=s_pcqq_aiomsg" target="_black">link</a>
+
 9. 运行
 ```
 yarn serve
