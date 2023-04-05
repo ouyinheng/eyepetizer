@@ -21,7 +21,6 @@
 
 <script>
 import {debounce} from '@/config/util.js';
-import { setInterval, clearInterval, setTimeout, clearTimeout } from 'timers';
 export default {
   name: "ovideo",
   data() {

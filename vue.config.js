@@ -1,4 +1,5 @@
-module.exports = {
+const { defineConfig } = require('@vue/cli-service')
+module.exports = defineConfig({
   publicPath: '.',
   productionSourceMap: false,
   runtimeCompiler: true,
@@ -8,7 +9,7 @@ module.exports = {
   devServer: {
     proxy: {
       '/wy': {
-        target: 'http://118.25.95.147:3000/',
+        target: 'http://localhost:3000/',
         ws: true,
         changeOrigin: true,
         pathRewrite: {
@@ -25,4 +26,4 @@ module.exports = {
       }
     }
   }
-}
+})

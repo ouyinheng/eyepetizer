@@ -1,5 +1,5 @@
 import axios from 'axios'
-const host= 'http://118.25.95.147:3000';
+const host= '/wy';
 
 // 登录
 export const login = (params) => axios.get(`${host}/login/cellphone?phone=${params.phone}&password=${params.password}`)

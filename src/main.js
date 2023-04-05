@@ -12,9 +12,9 @@ import VueMaterial from 'vue-material'
 import 'vue-material/dist/vue-material.min.css'
 Vue.use(VueMaterial)
 
-import VueAwesomeSwiper from 'vue-awesome-swiper'
-import 'swiper/dist/css/swiper.css'
-Vue.use(VueAwesomeSwiper, /* { default global options } */)
+// import VueAwesomeSwiper from 'vue-awesome-swiper'
+// import 'swiper/dist/css/swiper.css'
+// Vue.use(VueAwesomeSwiper, /* { default global options } */)
 
 import '@/components/toast/index.scss';
 import Toast from '@/components/toast/index.js';

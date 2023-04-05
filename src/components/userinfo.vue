@@ -122,7 +122,7 @@ export default {
     },
     showImage() {},
     getUserDetails() {
-      axios.get('http://118.25.95.147:3000/user/subcount').then(res=>{
+      axios.get('/wy/user/subcount').then(res=>{
         console.log(res)
       })
     }

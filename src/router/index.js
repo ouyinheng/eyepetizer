@@ -156,9 +156,10 @@ router.beforeEach((to, from, next) => {
     if (userinfo) {
       next()
     } else {
-      next({
-        name: 'login'
-      })
+      next()
+      // next({
+      //   name: 'login'
+      // })
     }
   }
 })

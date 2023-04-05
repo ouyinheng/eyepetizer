@@ -41,7 +41,6 @@ import Header from "@/components/oHeader.vue";
 import musicitem from "@/components/music-item.vue";
 import Loading from "@/components/Loading";
 import appbar from "@/components/appbar";
-import { promises } from 'fs';
 
 export default {
   name: "singlistinfo",

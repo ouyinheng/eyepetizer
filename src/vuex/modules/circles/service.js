@@ -1,5 +1,5 @@
 import axios from 'axios'
-const host= 'http://118.25.95.147:3000';
+const host= '/wy';
 
 // 获取用户歌单
 export const getUserDynamic = (params) => axios.get(`${host}/event?pagesize=${params.pagesize}&lasttime=${params.lasttime}`)
