@@ -12,17 +12,11 @@
     </div>
     <mu-carousel :hide-indicators="true" :hide-controls="true" class="banner">
       <mu-carousel-item v-for="(item, index) in songlist" :key="index">
-        <img :src="item.pic">
+        <img :src="item.pic" />
       </mu-carousel-item>
     </mu-carousel>
-    <!-- swiper -->
-    <!-- <swiper style="border-radius:10px;">
-      <swiper-slide v-for="(item, index) in songlist" :key="index">
-        <img :src="item.pic">
-      </swiper-slide>
-    </swiper>-->
     <section class="section">
-      <div class="flex" style="margin: 10px 0;">
+      <div class="flex" style="margin: 10px 0">
         <div
           class="flex -center"
           v-for="(item, index) in iconlist"
@@ -32,18 +26,7 @@
           <mu-avatar :color="item.color">
             <span :class="['iconfont', item.icon]"></span>
           </mu-avatar>
-          <div style="margin-top: 5px;">{{item.title}}</div>
-        </div>
-      </div>
-      <div class="mt-4">
-        <h3 class="h3 font-md between" @click="jump('/playlists')">
-          精选歌单
-          <span class="iconfont icon-more"></span>
-        </h3>
-        <div class="songlist mt-2">
-          <div v-for="(item, index) in getRecommList.slice(0, 9)" :key="index" style="width:32%;">
-            <recom-item :value="item" @row-click="toSingListInfo(item.id)"></recom-item>
-          </div>
+          <div style="margin-top: 5px">{{ item.title }}</div>
         </div>
       </div>
       <div class="mt-6">
@@ -52,8 +35,19 @@
           <span class="iconfont icon-more"></span>
         </h3>
         <div class="mvlist mt-2">
-          <div v-for="(item, index) in mvList" :key="index" style="width:49%;">
+          <div v-for="(item, index) in mvList" :key="index" style="width: 49%">
             <recom-item :value="item" :count="false" @row-click="toMcInfo(item.id)"></recom-item>
+          </div>
+        </div>
+      </div>
+      <div class="mt-4" v-if="getHighqualityList.length">
+        <h3 class="h3 font-md between" @click="jump('/playlists')">
+          精选歌单
+          <span class="iconfont icon-more"></span>
+        </h3>
+        <div class="songlist mt-2">
+          <div v-for="(item, index) in getHighqualityList" :key="index" style="width: 32%">
+            <recom-item :value="item" @row-click="toSingListInfo(item.id)"></recom-item>
           </div>
         </div>
       </div>
@@ -68,7 +62,10 @@ import recomitem from "@/components/recom-item.vue";
 export default {
   name: "home",
   computed: {
-    ...mapGetters(["getRecommList"])
+    ...mapGetters(["getRecommList", "getHighqualityList"]),
+    recommList() {
+      return this.getRecommList?.length ? this.getRecommList?.slice(0, 9) : [];
+    }
   },
   components: {
     "recom-item": recomitem
@@ -107,7 +104,7 @@ export default {
     };
   },
   methods: {
-    ...mapActions(["getBanner", "getRecommend", "getRecomMv"]),
+    ...mapActions(["getBanner", "getRecommend", "getRecomMv", "getHighquality"]),
     goDayRecomm() {
       this.$router.push("/dayrecomm");
     },
@@ -123,7 +120,7 @@ export default {
       });
     },
     getMv() {
-      this.getRecomMv().then(res => {
+      this.getRecomMv().then((res) => {
         this.mvList = res.result;
       });
     },
@@ -136,14 +133,16 @@ export default {
   },
   created() {
     // this.$toast.top('top');
-    this.getBanner().then(res => {
+    this.getBanner().then((res) => {
       this.songlist = res.banners;
     });
-    this.getRecommend().then(res => {
+    this.getRecommend().then((res) => {
+      console.log("res", res);
       // this.dayRecomm = res.slice(0, 9);
       // this.dayRecomm = this.getRecommList.slice(0, 9);
     });
     this.getMv();
+    this.getHighquality();
   }
 };
 </script>
@@ -200,4 +199,3 @@ export default {
   }
 }
 </style>
-

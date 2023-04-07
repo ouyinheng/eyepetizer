@@ -1,7 +1,7 @@
-export const getRecommList = function(state) {
-  return state.recommList
-}
+export const getRecommList = function (state) {
+  return state.recommList;
+};
 
-// export const getLoginStatus = function(state) {
-//   return state.isLogin;
-// }
+export const getHighqualityList = function (state) {
+  return state.highquality;
+};

@@ -2,12 +2,12 @@
   <div id="app">
     <keep-alive>
       <transition :name="transitionName">
-        <router-view class="changeRouter"/>
+        <router-view class="changeRouter" />
       </transition>
     </keep-alive>
 
     <audio :src="url" ref="audio"></audio>
-    <lg-preview></lg-preview>
+    <!-- <lg-preview></lg-preview> -->
   </div>
 </template>
 <script>
@@ -71,11 +71,10 @@ export default {
 };
 </script>
 
-
 <style lang="scss" scoped>
 #app {
-  font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB",
-    "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei",
+    "微软雅黑", Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #26272a;
