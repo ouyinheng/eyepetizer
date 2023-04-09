@@ -1,53 +1,57 @@
 /**
-* 存储变量
+* 存储变量 #f55e55   #ff4545
 */
-$colors:(
+$colors: (
   p: #ff4545,
-  p1: #B4B4B4,
-  p2: #7F7E7E,
-  p3: #26272A
+  p1: #b4b4b4,
+  p2: #7f7e7e,
+  p3: #26272a
 );
 // 辅助色
 $colors-assistL: (
   a1: #ff6686,
-  a2: #51B7FF,
-  a3: #BC78FF,
-  a4: #FFD863
+  a2: #51b7ff,
+  a3: #bc78ff,
+  a4: #ffd863
 );
 // 中性色
 $colors-neutral: (
   p: #303133,
   c: #606266,
   m: #909399,
-  o: #C0C4CC
+  o: #c0c4cc
 );
 // 边框颜色
 $colors-border: (
-  b1: #DCDFE6,
-  b2: #E4E7ED,
-  b3: #EBEEF5,
-  b4: #F2F6FC
+  b1: #dcdfe6,
+  b2: #e4e7ed,
+  b3: #ebeef5,
+  b4: #f2f6fc
 );
 // 间距
 $space: (
-  p: 'padding',
-  m: 'margin',
-  pl: 'padding-left',
-  pr: 'padding-right',
-  pt: 'padding-top',
-  pb: 'padding-bottom',
-  ml: 'margin-left',
-  mr: 'margin-right',
-  mt: 'margin-top',
-  mb: 'margin-bottom'
+  p: "padding",
+  m: "margin",
+  pl: "padding-left",
+  pr: "padding-right",
+  pt: "padding-top",
+  pb: "padding-bottom",
+  ml: "margin-left",
+  mr: "margin-right",
+  mt: "margin-top",
+  mb: "margin-bottom"
 );
 // 字体大小
 $fontsize: (
-  sm: 1rem, //辅助文字
-  md: 1.16rem, //正文
-  lg: 1.4rem, //小标题标题
-  xs: 1.5rem, //标题
+  sm: 1rem,
+  //辅助文字
+  md: 1.16rem,
+  //正文
+  lg: 1.4rem,
+  //小标题标题
+  xs: 1.5rem,
+  //标题
   xxs: 1.67rem //大标题
 );
 
-$linear:linear-gradient( 135deg, #81FBB8 10%, #28C76F 100%);
+$linear: linear-gradient(135deg, #81fbb8 10%, #28c76f 100%);

@@ -12,7 +12,41 @@
     </div>
     <section class="section">
       <PaDailySongs title="每日推荐" tip="" />
-      <PaPersonalFm class="mt-6" />
+      <div class="flex" style="margin: 10px 0">
+        <div
+          class="flex -center"
+          v-for="(item, index) in iconlist"
+          :key="index"
+          @click="jump(item.url)"
+        >
+          <mu-avatar :color="item.color">
+            <span :class="['iconfont', item.icon]"></span>
+          </mu-avatar>
+          <div style="margin-top: 5px">{{ item.title }}</div>
+        </div>
+      </div>
+      <div class="mt-6" v-if="false">
+        <h3 class="h3 font-lg between">
+          每日推荐
+          <span class="iconfont icon-more"></span>
+        </h3>
+        <div class="mvlist mt-2">
+          <div v-for="(item, index) in mvList" :key="index" style="width: 49%">
+            <recom-item :value="item" :count="false" @row-click="toMcInfo(item.id)"></recom-item>
+          </div>
+        </div>
+      </div>
+      <div class="mt-6" v-if="getHighqualityList.length">
+        <h3 class="h3 font-lg between" @click="jump('/playlists')">
+          精选歌单
+          <span class="iconfont icon-more"></span>
+        </h3>
+        <div class="songlist mt-2">
+          <div v-for="(item, index) in getHighqualityList" :key="index" style="width: 32%">
+            <recom-item :value="item" @row-click="toSingListInfo(item.id)"></recom-item>
+          </div>
+        </div>
+      </div>
       <div class="mt-6 mb-4" v-if="getHighqualityList.length">
         <h3 class="h3 font-lg between" @click="jump('/playlists')">
           歌手推荐
@@ -22,43 +56,32 @@
           <ArtistLists :listData="artistListsData" />
         </div>
       </div>
-      <div class="mt-6" v-if="getHighqualityList.length">
-        <h3 class="h3 font-lg between mb-4" @click="jump('/playlists')">
-          精选歌单
-          <span class="iconfont icon-more"></span>
-        </h3>
-        <PaDailySongs
-          class="mb-6"
-          v-for="(item, index) in getHighqualityList"
-          :key="index"
-          :title="item.name"
-          :picImg="item.picUrl || item.coverImgUrl"
-          tip=""
-          @click.native="toSingListInfo(item.id)"
-        />
-      </div>
     </section>
   </div>
 </template>
 
 <script>
 import { mapActions, mapGetters } from "vuex";
+import recomitem from "@/components/recom-item.vue";
 import PaDailySongs from "@/components/PaDailySongs.vue";
 import ArtistLists from "@/components/DataList/ArtistLists.vue";
-import PaPersonalFm from "@/components/fm/PaPersonalFm.vue";
 
 export default {
   name: "home",
   computed: {
-    ...mapGetters(["getHighqualityList"])
+    ...mapGetters(["getRecommList", "getHighqualityList"]),
+    recommList() {
+      return this.getRecommList?.length ? this.getRecommList?.slice(0, 6) : [];
+    }
   },
   components: {
+    "recom-item": recomitem,
     PaDailySongs,
-    ArtistLists,
-    PaPersonalFm
+    ArtistLists
   },
   data() {
     return {
+      songlist: [],
       dayRecomm: [],
       mvList: [],
       artistListsData: [],
@@ -134,10 +157,16 @@ export default {
     }
   },
   created() {
+    // this.$toast.top('top');
+    this.getBanner().then((res) => {
+      this.songlist = res.banners;
+    });
     this.getRecommend().then((res) => {
-      this.dayRecomm = res?.slice(0, 6) || [];
+      this.dayRecomm = res.slice(0, 6);
+      // this.dayRecomm = this.getRecommList.slice(0, 9);
     });
     this.getArtistListData();
+    this.getMv();
     this.getHighquality();
   }
 };

@@ -1,5 +1,5 @@
 import * as Svc from "./service";
-
+import { getArtistListApi, getPersonalFmApi } from "../api/index";
 export const getBanner = ({ commit }) => {
   return Svc.getBanner().then((resp) => {
     return resp;
@@ -46,11 +46,21 @@ export const getRecomMv = ({ commit }) => {
 
 // 获取精品歌单
 export const getHighquality = ({ commit, state }) => {
-  console.log("state", state);
   if (state?.highquality.length) return;
   return Svc.getHighquality().then((res) => {
     if (res.code === 200) {
       commit("setHighquality", res.playlists);
+    }
+    return res;
+  });
+};
+
+// 获取歌手分类列表
+export const getArtistList = ({ commit, state }, params) => {
+  return getArtistListApi(params).then((res) => {
+    if (res.code === 200) {
+      console.log("resparams", res);
+      // commit("setHighquality", res.playlists);
     }
     return res;
   });

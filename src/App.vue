@@ -1,13 +1,12 @@
 <template>
   <div id="app">
     <keep-alive>
-      <transition :name="transitionName">
+      <transition name="scale" mode="out-in">
         <router-view class="changeRouter" />
       </transition>
     </keep-alive>
 
     <audio :src="url" ref="audio"></audio>
-    <!-- <lg-preview></lg-preview> -->
   </div>
 </template>
 <script>
@@ -91,6 +90,17 @@ export default {
     width: 100%;
     height: 100%;
     transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1);
+  }
+  // 路由跳转动画
+  .scale-enter-active,
+  .scale-leave-active {
+    transition: all 0.2s ease;
+  }
+
+  .scale-enter-from,
+  .scale-leave-to {
+    opacity: 0;
+    transform: scale(0.98);
   }
   .slide-left-enter,
   .slide-right-leave-active {

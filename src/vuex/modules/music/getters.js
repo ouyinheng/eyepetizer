@@ -1,17 +1,23 @@
-export const getSetUpuserSingList = function(state) {
-  return state.setUpuserSingList
-}
+export const getSetUpuserSingList = function (state) {
+  return state.setUpuserSingList;
+};
 
-export const getCollectUserSingList = function(state) {
+export const getCollectUserSingList = function (state) {
   return state.collectUserSingList;
-}
+};
 
-export const getNowPlay = function(state) {
+export const getNowPlay = function (state) {
   return state.nowPlay;
-}
-export const getPlayList = function(state) {
+};
+export const getPlayList = function (state) {
   return state.playList;
-}
-export const getPlay = function(state) {
-  return state.play
-}
+};
+export const getPlay = function (state) {
+  return state.play;
+};
+export const getIsFm = function (state) {
+  return state.isFm;
+};
+export const getFmList = function (state) {
+  return state.fmList;
+};

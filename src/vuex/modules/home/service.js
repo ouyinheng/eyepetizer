@@ -26,4 +26,4 @@ export const getSongListInfo = (params) =>
 export const getRecomMv = () => axios.get(`${host}/personalized/mv`);
 
 // 获取精品歌单
-export const getHighquality = () => axios.get(`${host}/top/playlist/highquality?limit=9`);
+export const getHighquality = () => axios.get(`${host}/top/playlist/highquality?limit=6`);
