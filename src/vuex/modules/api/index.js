@@ -16,7 +16,7 @@ area 取值:
 */
 // 获取歌手分类列表
 export const getArtistListApi = ({ type, area, limit }) =>
-  axios.get(`${host}/artist/list?type=${type}&area=${area}&limit=${limit}`);
+  axios.get(`/artist/list?type=${type}&area=${area}&limit=${limit}`);
 
 // FM
-export const getPersonalFmApi = () => axios.get(`${host}/personal_fm?time=${new Date().getTime()}`);
+export const getPersonalFmApi = () => axios.get(`/personal_fm?time=${new Date().getTime()}`);

@@ -1,29 +1,27 @@
 import axios from "axios";
-const host = "/wy";
-
 // banner
-export const getBanner = () => axios.get(`${host}/banner?type=1`);
+export const getBanner = () => axios.get(`/banner?type=1`);
 
 // 获取每日推荐歌单
-export const getRecommend = () => axios.get(`${host}/recommend/resource`);
+export const getRecommend = () => axios.get(`/recommend/resource`);
 // 获取歌单内容
-export const getRecommendInfo = (id) => axios.get(`${host}/playlist/detail?id=${id}`);
+export const getRecommendInfo = (id) => axios.get(`/playlist/detail?id=${id}`);
 
 // 获取每日推荐歌曲
-export const getDayRecom = () => axios.get(`${host}/recommend/songs`);
+export const getDayRecom = () => axios.get(`/recommend/songs`);
 
 // 排行榜
-export const getTopListDetail = () => axios.get(`${host}/toplist/detail`);
+export const getTopListDetail = () => axios.get(`/toplist/detail`);
 
 // 歌单分类
-export const getSongListClassify = () => axios.get(`${host}/playlist/hot`);
+export const getSongListClassify = () => axios.get(`/playlist/hot`);
 //
 export const getSongListInfo = (params) =>
   axios.get(
-    `${host}/top/playlist/highquality?before=${params.before}&limit=${params.limit}&cat=${params.cat}`
+    `/top/playlist/highquality?before=${params.before}&limit=${params.limit}&cat=${params.cat}`
   );
 // 推荐MV
-export const getRecomMv = () => axios.get(`${host}/personalized/mv`);
+export const getRecomMv = () => axios.get(`/personalized/mv`);
 
 // 获取精品歌单
-export const getHighquality = () => axios.get(`${host}/top/playlist/highquality?limit=6`);
+export const getHighquality = () => axios.get(`/top/playlist/highquality?limit=6`);
